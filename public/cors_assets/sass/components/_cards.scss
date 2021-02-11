@@ -1,0 +1,107 @@
+.team-box {
+	background-color: $main-color;
+	color: #fff;
+	border-radius: 1.5rem;
+	padding: 1.5rem;
+	margin-top: 7rem;
+	margin-bottom: 2rem;
+
+	.team-avatar {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		img {
+			width: 12rem;
+			height: 12rem;
+			border-radius: 1rem;
+			margin-top: -7.5rem;
+		}
+	}
+
+	.team-row {
+		display: flex;
+		justify-content: space-between;
+
+		& > *:last-child {
+			text-align: right;
+		}
+
+		span {
+			text-transform: uppercase;
+			text-decoration: underline;
+			font-size: 1.6rem;
+			font-weight: 500;
+		}
+	}
+}
+
+.program-view {
+	border-radius: 1.5rem;
+	background-color: $main-color-light;
+	padding: 2rem;
+	margin-bottom: 3rem;
+
+	h3 {
+		margin-bottom: 2rem;
+	}
+
+	.program-content {
+		display: flex;
+		flex-wrap: wrap;
+
+		& > *:not(:last-child) {
+		}
+
+		& > * {
+			margin-bottom: 1rem;
+			margin-right: 1rem;
+			flex: 1 1 15rem;
+		}
+	}
+}
+
+.card-white {
+	padding: 2rem;
+	border-radius: 1.5rem;
+	background-color: #fff;
+	color: $main-color !important;
+	margin-bottom: 3rem;
+
+	&.card-white--1 {
+		h1 {
+			font-size: 6.5rem;
+		}
+
+		.card-white-row {
+			&:first-child {
+				padding-top: 0;
+			}
+
+			padding: 1.65rem;
+		}
+	}
+
+	.card-white-row {
+		padding: 1rem;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $border-color;
+		}
+	}
+
+	h1 {
+		font-size: 4.5rem;
+		font-weight: bold;
+	}
+
+	h3 {
+		margin-bottom: 1rem;
+	}
+
+	.warning-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}

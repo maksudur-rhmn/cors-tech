@@ -1,0 +1,34 @@
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin absCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin scrollBar($backColor, $color) {
+	/* Scrollbar Styling */
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+	&::-webkit-scrollbar-button {
+		width: 8px;
+		height: 1px;
+	}
+	&::-webkit-scrollbar-track {
+		background: $backColor;
+		border-radius: 1rem;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $color;
+		border: thin solid $color;
+		border-radius: 0.5rem;
+	}
+}

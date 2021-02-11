@@ -1,0 +1,124 @@
+.header-hero {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)),
+		url(../img/hero-cover.jpg);
+	background-position: center;
+	background-size: cover;
+	border-radius: 2rem;
+	overflow: hidden;
+	height: 40rem;
+	padding: 5rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	h6 {
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		color: $heading-color;
+	}
+
+	h1 {
+		font-size: 5rem;
+		color: #fff;
+	}
+}
+
+.hero-cta {
+	display: flex;
+	flex-wrap: wrap;
+
+	@media only screen and (max-width: 992px) {
+		display: none;
+	}
+
+	.form-cta {
+		flex: 1 0 5rem;
+		overflow: hidden;
+		border-radius: 2rem;
+		background-color: #fff;
+		padding: 1.5rem;
+		display: flex;
+		margin-right: 2rem;
+	}
+}
+
+.form-cta-box {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+
+	&:nth-child(2) {
+		border-right: 1px solid $border-color;
+		border-left: 1px solid $border-color;
+	}
+
+	input {
+		color: $heading-color;
+		font-size: 1.4rem;
+		font-weight: bold;
+		border: 0;
+		outline: 0;
+
+		&::placeholder {
+			color: $heading-color;
+		}
+	}
+	img {
+		width: 2rem;
+		margin-right: 0.8rem;
+	}
+}
+
+.form-cta-button {
+	background-color: rgba(255, 255, 255, 0.15);
+	padding: 1.5rem 4.5rem;
+	font-size: 2rem;
+	text-transform: uppercase;
+	outline: 0;
+	border: 2px solid #fff;
+	border-radius: 2rem;
+	font-weight: bold;
+	color: #fff;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+.bg-cover {
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),
+		url(../img/bg-dark.jpg);
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+
+	&--1 {
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),
+			url(../img/cover-bg.jpg);
+	}
+
+	&--2 {
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),
+			url(../img/cover-bg-1.jpg);
+	}
+
+	&--3 {
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),
+			url(../img/cover-bg-2.jpg);
+	}
+
+	&-content {
+		text-align: center;
+		@include absCenter;
+
+		h1 {
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			color: #fff;
+			font-size: 2rem;
+		}
+	}
+}

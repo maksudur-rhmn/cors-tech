@@ -1,0 +1,87 @@
+.green {
+	color: #22de6f !important;
+	background-color: lighten(#22de6f, 35%) !important;
+}
+
+.blue {
+	color: #22c8de !important;
+	background-color: lighten(#22c8de, 35%) !important;
+}
+.red {
+	color: #d84d4a !important;
+	background-color: lighten(#d84d4a, 35%) !important;
+}
+
+.purple {
+	color: #844ad8 !important;
+	background-color: lighten(#844ad8, 35%) !important;
+}
+.orange {
+	color: #f67c36 !important;
+	background-color: lighten(#f67c36, 35%) !important;
+}
+
+.yellow {
+	color: #ffc107;
+}
+
+.bg-main-light {
+	background-color: $main-color-light;
+}
+
+.bg-main-lighter {
+	background-color: $main-color-lighter !important;
+	color: #fff !important;
+}
+
+.bg-dark-light {
+	background-color: $dark-color-light;
+}
+
+.bg-dark-lighter {
+	background-color: $dark-color-lighter;
+}
+
+.color-white {
+	color: #fff !important;
+}
+
+.color-main {
+	color: $main-color !important;
+}
+
+.color-chart {
+	color: #008ffb;
+}
+
+.mb-30 {
+	margin-bottom: 3rem;
+}
+
+.mb-10 {
+	margin-bottom: 1rem;
+}
+
+.mr-50 {
+	margin-right: 5rem;
+}
+
+.mt-70 {
+	margin-top: 7rem;
+
+	@media only screen and (max-width: 992px) {
+		margin-top: 0;
+	}
+}
+
+.mt-neg {
+	margin-top: -6rem;
+
+	@media only screen and (max-width: 992px) {
+		margin-top: 0;
+	}
+}
+
+.border-main {
+	border: 1px solid $border-color !important;
+}

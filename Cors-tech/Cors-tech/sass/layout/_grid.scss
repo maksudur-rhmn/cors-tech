@@ -1,0 +1,204 @@
+.grid {
+	padding: 2.5rem 0;
+
+	.grid-heading {
+		color: $heading-color;
+		text-transform: uppercase;
+		font-size: 1.6rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.grid-box {
+		overflow: hidden;
+		border-radius: 2rem;
+		min-height: 20rem;
+		position: relative;
+		margin: 1.5rem 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	.grid-footer {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		padding: 2rem;
+		display: flex;
+		align-items: center;
+		color: #fff;
+
+		i {
+			font-size: 2rem;
+
+			&:first-child {
+				margin-right: 1rem;
+			}
+
+			&:last-child {
+				margin-left: auto;
+			}
+		}
+
+		p {
+			margin: 0;
+			font-size: 1.6rem;
+			font-weight: bold;
+		}
+	}
+}
+
+.grid {
+	&.grid--one {
+		.grid-footer {
+			justify-content: space-between;
+
+			i {
+				font-size: 1.4rem;
+				color: #22c8de;
+			}
+
+			h5 {
+				color: #fff;
+				font-size: 2rem;
+				margin-bottom: 0;
+			}
+		}
+
+		.grid-footer-row {
+			display: flex;
+			align-items: center;
+		}
+
+		.grid-footer-main {
+			span {
+				color: $heading-color;
+				font-size: 1.2rem;
+			}
+		}
+		.grid-footer-rating {
+			i {
+				color: #ffc107;
+				color: 1.4rem;
+			}
+			span {
+				color: #fff;
+				font-size: 1.2rem;
+				margin-right: 1rem;
+			}
+		}
+	}
+}
+
+.grid {
+	&.grid--two {
+		h1 {
+			display: flex;
+			justify-content: space-between;
+			font-size: 4rem;
+
+			a {
+				color: $main-color;
+			}
+
+			i {
+				font-size: 3rem;
+			}
+		}
+
+		.grid-banner {
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+			overflow: hidden;
+			background-color: #fff;
+			border-radius: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+
+			.grid-banner-avatar {
+				width: 3.5rem;
+				height: 3.5rem;
+				overflow: hidden;
+				border-radius: 1rem;
+				position: relative;
+				z-index: 1;
+				margin: 0.5rem;
+			}
+
+			.grid-banner-content {
+				margin: 0.6rem 0.6rem 0.6rem 0;
+				font-size: 1.2rem;
+
+				span {
+					color: #a7a4a4;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+
+				p {
+					margin: 0;
+					color: $main-color;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	.grid-footer-box {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 2rem;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.grid-footer-side {
+		}
+
+		.grid-footer-row {
+			display: flex;
+			font-size: 1.2rem;
+
+			p {
+				color: $border-color;
+				padding-right: 1rem;
+				border-right: 1px solid $border-color;
+			}
+
+			a {
+				padding-left: 1rem;
+				color: #fff;
+			}
+		}
+
+		.grid-footer-amount {
+			font-size: 2.5rem;
+			font-weight: $weight-500;
+			border-left: 1px solid $border-color;
+			padding-left: 1rem;
+		}
+	}
+}

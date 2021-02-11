@@ -1,0 +1,94 @@
+.title {
+	color: $main-color;
+	font-weight: bold;
+	font-size: 4rem;
+}
+
+.title-heading {
+	color: $main-color;
+	font-size: 5rem;
+	font-weight: 400;
+}
+
+.heading-bold {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	span {
+		font-size: 6rem;
+		letter-spacing: 0.1rem;
+		font-weight: bold;
+		margin-right: 2rem;
+	}
+
+	img {
+		width: 6rem;
+	}
+}
+
+.green-text {
+	color: #22de6f;
+	font-weight: bold;
+}
+
+.red-text {
+	color: #d84d4a;
+	font-weight: bold;
+}
+
+.dark-red-text {
+	color: #db253d;
+}
+
+.heading {
+	font-size: 8rem;
+	font-weight: bold;
+
+	&--main {
+		color: $main-color;
+	}
+
+	&--white {
+		color: #fff;
+	}
+}
+.heading-sub {
+	color: #a2a2a2;
+	text-transform: uppercase;
+	font-size: 1.8rem;
+
+	&--white {
+		color: #fff;
+	}
+}
+
+.heading-sm {
+	font-size: 5rem;
+	font-weight: bold;
+
+	&--main {
+		color: $main-color;
+	}
+
+	&--white {
+		color: #fff;
+	}
+}
+
+.heading-xs {
+	font-size: 2.5rem;
+	font-weight: bold;
+
+	&--main {
+		color: $main-color;
+	}
+
+	&--white {
+		color: #fff;
+	}
+}
+
+.para-md {
+	font-size: 2rem;
+}

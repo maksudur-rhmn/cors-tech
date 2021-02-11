@@ -1,0 +1,144 @@
+.modal-box {
+	margin: 1rem 0;
+	font-size: 1.4rem;
+
+	&--colored {
+		padding: 2rem;
+		overflow: hidden;
+		border-radius: 1.5rem;
+		background-color: $background-main;
+	}
+
+	figure {
+		overflow: hidden;
+		border-radius: 1.5rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.modal-payment {
+	background-color: $main-color;
+	overflow: hidden;
+	padding: 2rem;
+	color: #fff;
+	font-size: 1.4rem;
+	border-radius: 1.5rem;
+	text-align: right;
+
+	i {
+		display: block;
+		font-size: 5rem;
+	}
+
+	&-content {
+		& > * {
+			margin-bottom: 1rem;
+		}
+	}
+
+	&-footer {
+		padding-top: 1rem;
+		border-top: 1px solid $border-color;
+
+		h1 {
+			font-size: 4rem;
+		}
+	}
+}
+
+.modal {
+	&-avatar {
+		margin: 0 auto;
+		max-width: 25rem;
+	}
+
+	&-form {
+		padding: 0 0 2rem 0;
+		border-bottom: 1px solid $border-color;
+
+		label {
+			color: #c2c5c9;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 1.4rem;
+			margin-bottom: 1rem;
+			display: block;
+			text-align: left;
+		}
+
+		input {
+			display: block;
+			width: 100%;
+			margin-bottom: 1rem;
+			border-radius: 1.5rem;
+			padding: 1.5rem;
+			font-size: 1.4rem;
+			border: 0;
+			outline: 0;
+			background-color: #eff1f3;
+		}
+	}
+
+	&-input {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 25rem;
+	}
+
+	&-checkbox {
+		margin: 1.5rem 0;
+		text-align: left;
+
+		input {
+			display: inline-block;
+			width: initial;
+			margin-right: 1rem;
+		}
+
+		label {
+			display: inline-block;
+			font-weight: normal;
+			color: $main-color;
+		}
+
+		a {
+			text-decoration: underline;
+			color: $main-color;
+		}
+	}
+
+	&-social {
+		margin-top: 2rem;
+
+		&-box {
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&--button {
+			max-width: 25rem;
+			width: 25rem;
+			font-size: 1.4rem;
+			border: 0;
+			outline: 0;
+			color: #fff;
+			font-weight: bold;
+			border-radius: 1rem;
+			overflow: hidden;
+			padding: 1.5rem 2rem;
+
+			i {
+				margin-right: 2rem;
+				font-size: 2rem;
+			}
+		}
+
+		&--facebook {
+			background-color: #054483;
+		}
+		&--google {
+			background-color: #d7383f;
+		}
+	}
+}

@@ -1,0 +1,176 @@
+.landing {
+	padding: 5rem 0;
+	text-align: center;
+
+	&-text {
+		font-size: 2rem;
+		margin: 0 8rem;
+
+		@media only screen and (max-width: 992px) {
+			margin: 0;
+		}
+	}
+
+	&-box {
+		margin: 2rem 0;
+		text-align: center;
+	}
+
+	&-num {
+		display: flex;
+		width: 3rem;
+		height: 3rem;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		border-radius: 50%;
+		margin: 0 auto 1rem auto;
+		color: #fff;
+		background-color: $main-color;
+	}
+
+	&-icon-sm {
+		width: 5rem;
+		height: 5rem;
+		margin-left: auto;
+		margin-right: auto;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&-icon {
+		width: 12rem;
+		height: 12rem;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 1rem;
+	}
+
+	&-block {
+		border: 1px solid #fff;
+		border-radius: 1.5rem;
+		padding: 2rem;
+		text-align: center;
+		margin: 2rem 0;
+
+		p {
+			font-size: 1.6rem;
+		}
+	}
+
+	&-social {
+		display: flex;
+		align-items: center;
+		text-align: left;
+		border-radius: 1.5rem;
+		background-color: $background-main;
+		padding: 2rem;
+		margin: 2rem 0;
+
+		&--1 {
+			background-color: #000;
+		}
+
+		a {
+			font-weight: bold;
+			font-size: 1.6rem;
+			color: $main-color;
+		}
+
+		&-content {
+			& > *:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+
+			h4 {
+				font-weight: bold;
+				color: $main-color;
+			}
+
+			p {
+				line-height: 2rem;
+			}
+		}
+	}
+
+	&-tiles {
+		border-radius: 1.5rem;
+		overflow: hidden;
+		margin-bottom: 2rem;
+		height: 25rem;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&-avatar {
+		border-radius: 1.5rem;
+		overflow: hidden;
+		width: 10rem;
+		margin-right: 2rem;
+		margin-bottom: 0;
+	}
+
+	&-rating {
+		i {
+			font-size: 1.4rem;
+			color: #ffc107;
+		}
+	}
+
+	&-accordian {
+		font-size: 1.4rem;
+	}
+
+	&-footer {
+		padding: 5rem 0;
+		font-size: 2rem;
+
+		img {
+			width: 5rem;
+		}
+	}
+
+	&-form {
+		margin: 0 10rem;
+
+		@media only screen and (max-width: 992px) {
+			margin: 0;
+		}
+
+		input,
+		textarea,
+		select {
+			width: 100%;
+			padding: 2rem;
+			font-size: 1.6rem;
+			display: inline-block;
+			margin: 2rem 0;
+			border-radius: 1.5rem;
+			border: 0;
+			outline: 0;
+			background-color: #171717;
+			resize: none;
+			color: #fff;
+
+			&::placeholder {
+				color: #3d3e3e;
+			}
+		}
+
+		select {
+			color: #3d3e3e;
+		}
+	}
+}
+
+.landing-paragraph {
+	color: #4a4e63;
+	font-size: 1.6rem;
+}

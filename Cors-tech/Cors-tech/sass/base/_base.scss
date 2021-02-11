@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	//this defines what 1rem is
+	//for example: required font-size is 10px and root size is 16px
+	//so [(required / root) * 100] is the formula to set font-size of 10px
+
+	font-size: 62.5%; //1rem = 10px => 10/16 = 62.5
+
+	@media only screen and (max-width: 768px) {
+		font-size: 50%;
+	}
+}
+
+body {
+	box-sizing: border-box;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+img {
+	width: 100%;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

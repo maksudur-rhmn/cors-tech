@@ -1,0 +1,46 @@
+.footer {
+	padding: 5rem 4rem;
+	background-color: $main-color;
+	color: #fff;
+	font-size: 2rem;
+	margin-top: 5rem;
+	font-weight: bold;
+
+	.footer-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.footer-col {
+		flex: 1 0 30rem;
+		margin-bottom: 2rem;
+	}
+
+	.footer-list {
+		li {
+			margin-bottom: 1rem;
+		}
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.footer-language {
+		li {
+			display: inline-block;
+			margin-right: 1rem;
+		}
+		a {
+			color: inherit;
+		}
+	}
+
+	.footer-copyright {
+		text-align: center;
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+}

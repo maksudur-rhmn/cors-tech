@@ -1,0 +1,169 @@
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+	border: none;
+	font-weight: bold;
+	color: #fff;
+	text-transform: capitalize;
+	border-radius: 1rem;
+	background-color: $main-color;
+}
+
+.nav-tabs.nav-tabs--2 .nav-item.show .nav-link,
+.nav-tabs.nav-tabs--2 .nav-link.active {
+	color: $main-color;
+	background-color: #fff;
+}
+
+.nav-tabs.nav-tabs--2 {
+	background: $main-color;
+}
+
+.nav-tabs {
+	border-bottom: none;
+	font-size: 1.6rem;
+	display: inline-block;
+	// justify-content: space-evenly;
+	// max-width: 35rem;
+	background: #f7f7f7;
+	padding: 0.8rem;
+	border-radius: 1rem;
+}
+
+.nav-tabs .nav-item {
+	display: inline-block;
+}
+
+.nav-tabs .nav-link {
+	color: #9a9fa9;
+	text-transform: capitalize;
+	padding: 1rem 2rem;
+}
+
+.nav-tabs .nav-link {
+	border: none;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+	border: none;
+}
+
+.tooltip-inner {
+	background-color: #fff !important;
+	color: $main-color;
+	font-size: 1.4rem;
+	padding: 1rem;
+	font-weight: bold;
+}
+.bs-tooltip-top .arrow::before,
+.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+	border-top-color: #fff !important;
+}
+
+.bs-tooltip-right .arrow::before,
+.bs-tooltip-auto[x-placement^="right"] .arrow::before {
+	border-right-color: #fff !important;
+}
+
+.bs-tooltip-bottom .arrow::before,
+.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+	border-bottom-color: #fff !important;
+}
+
+.bs-tooltip-left .arrow::before,
+.bs-tooltip-auto[x-placement^="left"] .arrow::before {
+	border-left-color: #fff !important;
+}
+
+.modal-header .close {
+	font-size: 3rem;
+}
+
+.modal-dialog {
+	@media (min-width: 576px) {
+		&--large {
+			max-width: 65%;
+		}
+	}
+
+	&--sm {
+		text-align: center;
+	}
+}
+
+.modal-content {
+	padding: 2rem;
+	border-radius: 1.5rem;
+	overflow: hidden;
+}
+
+.modal-body {
+	padding: 1rem 0;
+}
+
+.accordion {
+	margin: 2rem 0;
+}
+
+.btn.btn-link.btn-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.4rem;
+	font-weight: bold;
+	padding: 1.5rem 2rem;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus,
+	&:active {
+		box-shadow: none;
+		text-decoration: none;
+	}
+}
+
+.btn.btn-link.btn-block:not(.collapsed) {
+	border-top-left-radius: 1.5rem;
+	border-top-right-radius: 1.5rem;
+	background-color: $main-color;
+	color: #fff;
+}
+
+.btn.btn-link.btn-block.collapsed {
+	color: $main-color !important;
+	background-color: #fff !important;
+	border: 1px solid $border-color;
+	border-radius: 1.5rem !important;
+}
+
+.accordion > .card {
+	border: 0;
+	font-size: 1.4rem;
+}
+
+.accordion > .card:not(:last-child) {
+	margin-bottom: 1.5rem;
+}
+
+.accordion .card-header {
+	margin-bottom: 0 !important;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+
+.accordion .card-body {
+	text-align: left;
+	padding: 2.5rem 2rem 2rem;
+	background-color: $main-color;
+	color: #fff;
+}
+
+.collapse {
+	margin-top: -1px;
+	border-bottom-left-radius: 1.5rem;
+	border-bottom-right-radius: 1.5rem;
+	overflow: hidden;
+}
