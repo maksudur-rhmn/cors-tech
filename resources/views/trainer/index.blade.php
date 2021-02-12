@@ -73,30 +73,34 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-6">
-								<!-- Sales chart -->
-								<div class="sales-chart-box">
-									<div class="sales-header">
-										<h3 class="heading-sub">Evolution of sales</h3>
-										<div class="">
-											<h3>Total</h3>
-											<h1>9 225€</h1>
+							<div class="col-lg-12">
+								<!-- Sales -->
+								<div class="sales bg-main-light">
+									<h3 class="heading-sub heading-sub--white">Mes Programmes</h3>
+
+									<div class="sales-table">
+										<div class="sales-header">
+											<span>Name</span>
+											<span>Prog</span>
+											<span>Lessons</span>
+											<span>Price</span>
 										</div>
-									</div>
-									<div class="sales-chart"></div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<!-- Profile chart -->
-								<div class="profile-visit-chart-box">
-									<div class="profile-header">
-										<h3 class="heading-sub">Profile visits</h3>
-										<div class="">
-											<h3>Total</h3>
-											<h1>9 225€</h1>
+										@forelse ($myProgrammes as $myProgramme)
+										<div class="sales-row">
+											<div>{{ ucfirst($myProgramme->title) }}</div>
+											<div>{{ $myProgramme->getCategory->category_name ?? '' }}</div>
+											<div>{{ $myProgramme->getLessons->count() }}</div>
+											<div class="sales-money">
+												{{ $myProgramme->price }}$
+											</div>
 										</div>
+										@empty
+										<h4 class="py-5">
+											There is no course.
+										</h4>
+										@endforelse
+										
 									</div>
-									<div class="profile-visit-chart"></div>
 								</div>
 							</div>
 						</div>

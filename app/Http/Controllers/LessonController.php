@@ -13,7 +13,7 @@ class LessonController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
-        $this->middleware('checkRole');
+        $this->middleware('checkRole')->except('store');
     }
     /**
      * Display a listing of the resource.
@@ -53,8 +53,14 @@ class LessonController extends Controller
             'serial'       => 'required',
         ]);
 
-        Lesson::create($request->except('_token') + ['created_at' => Carbon::now()]);
+        $lesson = Lesson::create($request->except('_token') + ['created_at' => Carbon::now()]);
+        $file = $request->file('lesson_video');
+        $filename = $file->getClientOriginalName();
+        $path = public_path('uploads/lesson-videos/');
+        $file->move($path, $filename);
 
+        $lesson->lesson_video = $filename;
+        $lesson->save();
         return back()->withSuccess('Lesson added to the course');
     }
 

@@ -107,6 +107,7 @@ Route::post('/facebook/group/store', [FacebookController::class, 'store'])->name
 //TrainerController 
 Route::get('/trainer', [TrainerController::class, 'index'])->name('trainer.index');
 Route::get('/create/programme', [TrainerController::class, 'create'])->name('trainer.create');
+Route::get('/add/lesson', [TrainerController::class, 'lessonCreate'])->name('trainerlesson.create');
 
 // Important Do not EDit
 

@@ -48,10 +48,10 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link text-white" href="#">Dashboard</a>
+						<a class="nav-link text-white" href="{{ url('/trainer') }}">Dashboard</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white active" href="#">Mes programmes</a>
+						<a class="nav-link text-white active" href="{{ url('/trainer') }}">Mes programmes</a>
 					</li>
 				</ul>
 				<div class="nav-box">
@@ -88,11 +88,11 @@
 								<h3 class="heading-sub heading-sub--white">Shortcuts</h3>
 
 								<ul class="side-list">
-									<li><a href="#" class="@yield('trainer-dash')">Dashboard</a></li>
+									<li><a href="{{ url('/trainer') }}" class="@yield('trainer-dash')">Dashboard</a></li>
 									@if(Auth::user()->subscribed('Premium membership'))
 									<li><a href="{{ route('trainer.create') }}" class="@yield('trainer-create')">Create course</a></li>
 									@endif
-									<li><a href="#">Payments</a></li>
+									<li><a href="{{ route('trainerlesson.create') }}" class="@yield('lesson-create')">Add Lesson</a></li>
 									<li><a href="#">All the clients</a></li>
 									<li>
 										<a href="#">All coaches <span>150</span></a>

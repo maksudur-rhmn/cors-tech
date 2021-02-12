@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Sale;
+use App\Models\Course;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class TrainerController extends Controller
     public function index()
     {
         $sales = Sale::where('trainer_id', Auth::id())->get();
-        return view('trainer.index', compact('sales'));
+        $myProgrammes = Course::where('user_id', Auth::id())->get();
+        return view('trainer.index', compact('sales', 'myProgrammes'));
     }
 
     public function create()
@@ -34,5 +36,19 @@ class TrainerController extends Controller
        {
            return redirect('/trainer')->withSuccess('Please subscribe to premium trainership to start selling your course');
        }
+    }
+
+    public function lessonCreate()
+    {
+        if(Auth::user()->getCourse->count() != 0)
+        {
+           return view('trainer.lesson',[
+            'courses' => Course::where('user_id', Auth::id())->get(),
+           ]);
+        }
+        else 
+        {
+            return back()->withSuccess('You do not have any programs yet. Add a program to attach lesson');
+        }
     }
 }
