@@ -18,7 +18,7 @@ class CourseController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
-        $this->middleware('checkRole');
+        $this->middleware('checkRole')->except('getSubCategory', 'store', 'update', 'delete');
     }
     /**
      * Display a listing of the resource.
@@ -63,9 +63,6 @@ class CourseController extends Controller
             'course_length'      => 'required',
             'introduction_video' => 'required',
             'cover_image'        => 'required|mimes:png,jpeg,jpg',
-            'meta_title'         => 'required',
-            'meta_description'   => 'required',
-            'meta_keywords'      => 'required',
         ]);
 
           
@@ -103,6 +100,7 @@ class CourseController extends Controller
             'meta_keywords'      => $request->meta_keywords,
             'created_at'         => Carbon::now(),
             'user_id'            => Auth::id(),
+            'feature'           => 'yes',
          ]);
 
          $uploaded_file = $request->file('cover_image');
@@ -110,7 +108,15 @@ class CourseController extends Controller
          $location = public_path('uploads/course/' . $file_name);
          Image::make($uploaded_file)->save($location);
 
+
+            $file = $request->file('introduction_video');
+            $filename = $file->getClientOriginalName();
+            $path = public_path('uploads/intro-videos/');
+            $file->move($path, $filename);
+
+
          $course->cover_image = strtolower($file_name);
+         $course->introduction_video = $filename;
          $course->save();
 
          return back()->withSuccess('Course added successfully');
@@ -180,6 +186,15 @@ class CourseController extends Controller
 
            $course->cover_image = $file_name;
         }
+
+        if($request->hasFile('introduction_video')){
+
+            $file = $request->file('introduction_video');
+            $filename = $file->getClientOriginalName();
+            $path = public_path('uploads/intro-videos/');
+            return $file->move($path, $filename);
+            $course->introduction_video = $filename;
+        }
          $course->title              = $request->title;
          $course->category_id        = $request->category_id;
          $course->sub_category_id    = $request->sub_category_id;
@@ -189,7 +204,6 @@ class CourseController extends Controller
          $course->slug               = Str::slug($request->slug);
          $course->status             = $request->status;
          $course->course_length      = $request->course_length;
-         $course->introduction_video = $request->introduction_video;
          $course->meta_title         = $request->meta_title; 
          $course->meta_description   = $request->meta_description;
          $course->meta_keywords      = $request->meta_keywords;

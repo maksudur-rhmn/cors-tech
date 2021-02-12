@@ -5,6 +5,7 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<!-- Google fonts -->
 		<!-- <link rel="preconnect" href="https://fonts.gstatic.com" /> -->
 		<link
@@ -60,17 +61,71 @@
 						<i class="fas fa-search"></i>
 					</form>
 					<div class="nav-profile-box">
-						<img src="{{ asset('cors_assets/img/icons/profile.png') }}" alt="" />
+						<img src="{{ Auth::user()->profile_photo_url }}" alt="" />
 					</div>
 				</div>
 			</div>
 		</nav>
 		<!-- Navbar Ends -->
+		    
+		<!-- Blue box start -->
+		<main class="blue-box mb-5">
+			<div class="container-fluid">
+			@if(session('success'))
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="alert alert-success">
+						{{ session('success') }}
+					</div>
+				</div>
+			</div>	
+			@endif
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="blue-sidebar">
+							<!-- Shortcuts -->
+							<div class="side-list-box bg-main-light">
+								<h3 class="heading-sub heading-sub--white">Shortcuts</h3>
+
+								<ul class="side-list">
+									<li><a href="#" class="@yield('trainer-dash')">Dashboard</a></li>
+									@if(Auth::user()->subscribed('Premium membership'))
+									<li><a href="{{ route('trainer.create') }}" class="@yield('trainer-create')">Create course</a></li>
+									@endif
+									<li><a href="#">Payments</a></li>
+									<li><a href="#">All the clients</a></li>
+									<li>
+										<a href="#">All coaches <span>150</span></a>
+									</li>
+									<li><a href="#">Settings</a></li>
+									<li><a href="#">Other</a></li>
+								</ul>
+							</div>
+
+							<!-- program view -->
+							<div class="program-view">
+								<h3 class="heading-sub heading-sub--white">Create a program</h3>
+								<p> Premium Member Area | <span>Subscription ends at : {{ nextCycle(Auth::id()) }}</span> </p>
+								<div class="program-content">
+									@if(Auth::user()->subscribed('Premium membership'))
+									<a href="{{ route('trainer.create') }}" class="button button--outline-white-empty">Create course</a>
+                                    @else
+                                    <form action="{{ route('subscriptions.store', 'premium') }}" method="POST">
+                                        @csrf
+                                         <input type="hidden" value="{{ Auth::id() }}" name="user_id">
+                                         <button type="submit" class="button button--outline-white-empty">Subscribe now and start selling.</button>
+                                    </form>
+                                    @endif
+								</div>
+							</div>
+						</div>
+					</div>
      @yield('content')
 
      		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="{{ asset('cors_assets/js/jquery.js') }}"></script>
+		{{-- <script src="{{ asset('cors_assets/js/jquery.js') }}"></script> --}}
+		<script src="{{ asset('dashboard_assets/libs/jquery/jquery.min.js') }}"></script>
 		<script src="{{ asset('cors_assets/js/popper.js') }}"></script>
 		<script src="{{ asset('cors_assets/js/bootstrap.min.js') }}"></script>
 		<!-- Apex Chart -->
@@ -79,5 +134,6 @@
 
 		<!-- Custom JS -->
 		<script src="{{ asset('cors_assets/js/main.js') }}"></script>
+		@yield('footer-script')
 	</body>
 </html>

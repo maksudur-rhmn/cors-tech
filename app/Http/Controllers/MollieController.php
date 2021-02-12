@@ -45,6 +45,7 @@ class MollieController extends Controller
           'course_id'  => $request->course_id,
           'price'      => $course->price,
           'payment_id' => $payment->id,
+          'trainer_id' => $request->trainer_id,
           'created_at' => Carbon::now(),
         ]);
 

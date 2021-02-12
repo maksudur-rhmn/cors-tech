@@ -100,7 +100,6 @@ Add Courses
                                 @error('category_id')
                                  <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </select>
                         </div>
 
                         <div class="py-3">

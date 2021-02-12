@@ -107,6 +107,7 @@ window.player = player;
                 <input type="hidden" name="price" value="{{ $course->price }}.00">
                 <input type="hidden" name="coursename" value="{{ $course->title }}">
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
+                <input type="hidden" name="trainer_id" value="{{ $course->user_id }}">
                 <button
                   style="
                 	background: none;
