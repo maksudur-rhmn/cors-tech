@@ -14,6 +14,7 @@ class Sale extends Model
         'course_id',
         'payment_id',
         'price',
+        'trainer_id',
     ];
 
     public function getCourse()
