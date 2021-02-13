@@ -30,15 +30,16 @@
 					<div class="hero-cta">
 						<form class="form-cta">
 							<div class="form-cta-box">
-								<img src="img/icons/search-icon.png" alt="" />
+								
+								<img src="{{ asset('cors_assets/img/icons/search-icon.png') }}" alt="" />
 								<input type="text" placeholder="Football, reinforcement" />
 							</div>
 							<div class="form-cta-box">
-								<img src="img/icons/category-icon.png" alt="" />
+								<img src="{{ asset('cors_assets/img/icons/category-icon.png') }}" alt="" />
 								<input type="text" placeholder="Categories" />
 							</div>
 							<div class="form-cta-box">
-								<img src="img/icons/money-icon.png" alt="" />
+								<img src="{{ asset('cors_assets/img/icons/money-icon.png') }}" alt="" />
 								<input type="text" placeholder="Price" />
 							</div>
 						</form>

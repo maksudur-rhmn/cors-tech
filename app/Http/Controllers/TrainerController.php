@@ -56,7 +56,7 @@ class TrainerController extends Controller
     public function lessonList($id)
     {
         $lessons = Lesson::where('course_id', $id)->orderBy('serial', 'asc')->get();
-        return view('trainer.lessonlist', compact('lessons'));
+        return view('trainer.lessonList', compact('lessons'));
     }
 
     public function deleteprogramme()
