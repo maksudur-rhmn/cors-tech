@@ -72,7 +72,7 @@ class FrontendController extends Controller
        $features    = Course::where('feature', 'yes')->get();
        $isBought    = Sale::where('user_id', Auth::id())->where('course_id', $course->id)->where('status', 'paid')->exists();
 
-       return view('frontend.course-details', compact('course', 'features', 'isBought'));
+       return view('frontend.course-detailsn', compact('course', 'features', 'isBought'));
    }
 
    public function player($slug, $id)

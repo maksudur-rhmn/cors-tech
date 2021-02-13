@@ -73,7 +73,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-12">
+							<div class="col-lg-12" id="programme">
 								<!-- Sales -->
 								<div class="sales bg-main-light">
 									<h3 class="heading-sub heading-sub--white">Mes Programmes</h3>
@@ -83,13 +83,16 @@
 											<span>Name</span>
 											<span>Prog</span>
 											<span>Lessons</span>
-											<span>Price</span>
+											<span>Price </span>
+										
 										</div>
 										@forelse ($myProgrammes as $myProgramme)
 										<div class="sales-row">
 											<div>{{ ucfirst($myProgramme->title) }}</div>
 											<div>{{ $myProgramme->getCategory->category_name ?? '' }}</div>
-											<div>{{ $myProgramme->getLessons->count() }}</div>
+											<div>
+												<a href="{{ route('trainerlesson.list', $myProgramme->id) }}" class="btn btn-primary">View Lessons ({{ $myProgramme->getLessons->count() }})  </a>
+											</div>
 											<div class="sales-money">
 												{{ $myProgramme->price }}$
 											</div>

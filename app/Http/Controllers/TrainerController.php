@@ -6,6 +6,7 @@ use Auth;
 use App\Models\Sale;
 use App\Models\Course;
 use App\Models\Category;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller
@@ -50,5 +51,18 @@ class TrainerController extends Controller
         {
             return back()->withSuccess('You do not have any programs yet. Add a program to attach lesson');
         }
+    }
+
+    public function lessonList($id)
+    {
+        $lessons = Lesson::where('course_id', $id)->orderBy('serial', 'asc')->get();
+        return view('trainer.lessonlist', compact('lessons'));
+    }
+
+    public function deleteprogramme()
+    {
+        return view('trainer.delete', [
+            'myProgrammes' => Course::where('user_id', Auth::id())->get(),
+        ]);
     }
 }

@@ -24,10 +24,12 @@
 		<!-- Title -->
 		<title>Cors Tech</title>
 	</head>
-	<body class="dark-mode bg-blue">
+	<body class="dark-mode bg-blue"
+	 style="scroll-behavior: smooth;"
+	>
 		<!-- Navbar Start -->
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand text-white" href="#">
+			<a class="navbar-brand text-white" href="{{ url('/') }}">
 				<div class="navbar-box">
 					<img src="{{ asset('cors_assets/img/icons/logo-white.png') }}" alt="" />
 				</div>
@@ -51,7 +53,7 @@
 						<a class="nav-link text-white" href="{{ url('/trainer') }}">Dashboard</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white active" href="{{ url('/trainer') }}">Mes programmes</a>
+						<a class="nav-link text-white active" href="{{ route('trainerdelete.programme') }}">Mes programmes</a>
 					</li>
 				</ul>
 				<div class="nav-box">
@@ -93,12 +95,12 @@
 									<li><a href="{{ route('trainer.create') }}" class="@yield('trainer-create')">Create course</a></li>
 									@endif
 									<li><a href="{{ route('trainerlesson.create') }}" class="@yield('lesson-create')">Add Lesson</a></li>
-									<li><a href="#">All the clients</a></li>
+									<li><a href="{{ route('trainerdelete.programme') }}" class="@yield('programme-delete')">Delete Programme</a></li>
 									<li>
-										<a href="#">All coaches <span>150</span></a>
+										<a href="#">All coaches <span>{{ trainers()->count() }}</span></a>
 									</li>
-									<li><a href="#">Settings</a></li>
-									<li><a href="#">Other</a></li>
+									<li><a href="{{ url('/user/profile') }}">Settings</a></li>
+									{{-- <li><a href="#">Other</a></li> --}}
 								</ul>
 							</div>
 

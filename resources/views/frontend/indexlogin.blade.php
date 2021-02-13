@@ -159,7 +159,7 @@
 									<div class="row">
 										@forelse (courses() as $course)
 										<div class="col-lg-4">
-											<a href="">
+											<a href="{{ route('front.details', $course->slug) }}">
 											<div class="grid-box">
 												
 													<img src="{{ asset('uploads/course') }}/{{ $course->cover_image }}" alt="" />

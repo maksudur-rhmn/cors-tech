@@ -74,7 +74,7 @@ return [
              * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
              * your Mollie account.
              */
-            'currency' => 'EUR',
+            'currency' => 'USD',
         ],
 
         /**

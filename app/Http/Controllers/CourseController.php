@@ -230,7 +230,7 @@ class CourseController extends Controller
     {
         Lesson::where('course_id', $id)->delete();
         Course::findOrFail($id)->delete();
-        return back()->withSuccess('Course and all the lessons of this course has been deleted');
+        return back()->withSuccess('Course and all the lessons of this programme has been deleted');
     }
 
     public function getSubCategory(Request $request)

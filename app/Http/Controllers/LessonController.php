@@ -13,7 +13,7 @@ class LessonController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
-        $this->middleware('checkRole')->except('store');
+        $this->middleware('checkRole')->except('store', 'destroy');
     }
     /**
      * Display a listing of the resource.
