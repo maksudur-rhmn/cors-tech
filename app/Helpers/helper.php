@@ -15,6 +15,11 @@ function trainers()
   return \App\Models\User::where('role', 'coach')->get();
 }
 
+function students()
+{
+  return \App\Models\User::where('role', 'student')->get();
+}
+
 function userCourse($id)
 {
   return \App\Models\Sale::where('user_id', $id)->where('status', 'paid')->count();
@@ -53,4 +58,9 @@ function categories()
 function courses()
 {
   return \App\Models\Course::latest()->get();
+}
+
+function failedPayments($id)
+{
+  return \App\Models\Sale::where('user_id', $id)->where('status', 'pending')->get();
 }

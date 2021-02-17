@@ -82,7 +82,7 @@
 					@if(isAdmin() == 'admin')
 					<a href="{{ url('/dashboard') }}" class="nav-link">Admin Dashboard</a>
 					@else 
-					<a href="#" class="nav-link">Account</a>
+					<a href="{{ url('/dashboard') }}" class="nav-link">Account</a>
 					@endif
 				</li>
 				 @endauth

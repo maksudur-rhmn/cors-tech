@@ -3,6 +3,7 @@
 @section('trainer-dash')
 	active
 @endsection
+
 @section('content')
 
 					<div class="col-lg-9">
@@ -21,7 +22,7 @@
 										</div>
 										@forelse ($sales as $sale)
 										<div class="sales-row">
-											<div>{{ $sale->getUser->name }}</div>
+											<div>{{ $sale->getUser->name ?? '' }}</div>
 											<div>{{ $sale->getCourse->title ?? '' }}</div>
 											@if($sale->status == 'pending')
 											<div class="red-text">Failed</div>

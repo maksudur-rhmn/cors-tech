@@ -13,6 +13,7 @@ use App\Http\Controllers\MemberAreaController;
 use App\Http\Controllers\CreateAdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CreateSubscriptionController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainerController;
 
 /*
@@ -102,7 +103,7 @@ Route::post('/facebook/group/store', [FacebookController::class, 'store'])->name
 
 
 //StudentController 
-
+Route::get('/student', [StudentController::class, 'index'])->name('student.index');
 
 //TrainerController 
 Route::get('/trainer', [TrainerController::class, 'index'])->name('trainer.index');

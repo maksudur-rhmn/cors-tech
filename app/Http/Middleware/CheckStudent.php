@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class CheckRole
+class CheckStudent
 {
     /**
      * Handle an incoming request.
@@ -21,9 +21,9 @@ class CheckRole
         {
             return redirect('/student');
         }
-        if(Auth::user()->role == 'coach')
+        if(Auth::user()->role == 'admin')
         {
-            return redirect('/trainer');
+            return redirect('/dashboard');
         }
         return $next($request);
     }
