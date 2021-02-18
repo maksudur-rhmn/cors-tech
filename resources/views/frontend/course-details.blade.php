@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-Akil - {{ $course->title }}
+CORS TECH - {{ $course->title }}
 @endsection
 
 @section('content')

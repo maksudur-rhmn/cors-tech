@@ -37,9 +37,9 @@
                 </div>
                 <div class="main-list-buttons">
                     @if($sale->status == 'paid')
-                    <a href="" class="tiny-button tiny-button--green">Approved</a>
+                    <a href="{{ route('my.course', $sale->course_id) }}" class="tiny-button tiny-button--green">Access Cors</a>
                     @else
-                    <a href="#" class="tiny-button tiny-button--red">Declined</a>
+                    <a class="tiny-button tiny-button--red">Cors Access Rejected</a>
                     @endif
                 </div>
             </div>
@@ -65,18 +65,22 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="news-chart-box">
-                <h3 class="heading-sub">General sales</h3>
+                <h3 class="heading-sub">General Informations</h3>
                 <div class="news-header">
                     <div class="">
                         <h3>New Coaches</h3>
-                        <h1 class="color-chart font-weight-bold">55</h1>
+                        <h1 class="color-chart font-weight-bold">{{ trainers()->count() }}</h1>
                     </div>
                     <div class="">
                         <h3>New Clients</h3>
-                        <h1 class="font-weight-bold">100</h1>
+                        <h1 class="font-weight-bold">{{ students()->count() }}</h1>
                     </div>
                 </div>
-                <div class="stacked-chart"></div>
+                <div class="chart-container">
+                    <div class="pie-chart-container">
+                      <canvas id="pie-charts"></canvas>
+                    </div>
+                  </div>
             </div>
         </div>
         <div class="col-lg-6">
@@ -166,6 +170,136 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     <!-- javascript -->
  
+   <script>
+    $(function(){
+        //get the pie chart canvas
+        var cData = JSON.parse(`<?php echo $data['chart_data']; ?>`);
+        var ctx = $("#pie-chart");
+   
+        //pie chart data
+        var data = {
+          labels: cData.label,
+          datasets: [
+            {
+              label: "Cors Price",
+              data: cData.data,
+              backgroundColor: [
+                "#DEB887",
+                "#A9A9A9",
+                "#DC143C",
+                "#F4A460",
+                "#2E8B57",
+                "#1D7A46",
+                "#CDA776",
+              ],
+              borderColor: [
+                "#CDA776",
+                "#989898",
+                "#CB252B",
+                "#E39371",
+                "#1D7A46",
+                "#F4A460",
+                "#CDA776",
+              ],
+              borderWidth: [1, 1, 1, 1, 1,1,1]
+            }
+          ]
+        };
+   
+        //options
+        var options = {
+          responsive: true,
+          title: {
+            display: true,
+            position: "top",
+            text: "Total Cors bought",
+            fontSize: 18,
+            fontColor: "#111"
+          },
+          legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+              fontColor: "#333",
+              fontSize: 16
+            }
+          }
+        };
+   
+        //create Bar Chart class object
+        var chart1 = new Chart(ctx, {
+          type: "bar",
+          data: data,
+          options: options
+        });
+   
+    });
+  </script>
+   <script>
+    $(function(){
+        //get the pie chart canvas
+        var cData = JSON.parse(`<?php echo $coaches['chart_data']; ?>`);
+        var ctx = $("#pie-charts");
+   
+        //pie chart data
+        var data = {
+          labels: cData.label,
+          datasets: [
+            {
+              label: "Trainers",
+              data: cData.data,
+              backgroundColor: [
+                "#DEB887",
+                "#A9A9A9",
+                "#DC143C",
+                "#F4A460",
+                "#2E8B57",
+                "#1D7A46",
+                "#CDA776",
+              ],
+              borderColor: [
+                "#CDA776",
+                "#989898",
+                "#CB252B",
+                "#E39371",
+                "#1D7A46",
+                "#F4A460",
+                "#CDA776",
+              ],
+              borderWidth: [1, 1, 1, 1, 1,1,1]
+            }
+          ]
+        };
+   
+        //options
+        var options = {
+          responsive: true,
+          title: {
+            display: true,
+            position: "top",
+            text: "Total Trainers",
+            fontSize: 18,
+            fontColor: "#111"
+          },
+          legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+              fontColor: "#333",
+              fontSize: 16
+            }
+          }
+        };
+   
+        //create Bar Chart class object
+        var chart1 = new Chart(ctx, {
+          type: "pie",
+          data: data,
+          options: options
+        });
+   
+    });
+  </script>
    <script>
     $(function(){
         //get the pie chart canvas

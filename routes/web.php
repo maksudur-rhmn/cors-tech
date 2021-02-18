@@ -104,6 +104,10 @@ Route::post('/facebook/group/store', [FacebookController::class, 'store'])->name
 
 //StudentController 
 Route::get('/student', [StudentController::class, 'index'])->name('student.index');
+Route::get('/mes/{id}/cors', [StudentController::class, 'myCourse'])->name('my.course');
+Route::get('/les/{slug}/{id}/player', [StudentController::class, 'player'])->name('my.player');
+Route::get('/foo', [StudentController::class, 'foo']);
+Route::get('/payment/history', [StudentController::class, 'history'])->name('payment.history');
 
 //TrainerController 
 Route::get('/trainer', [TrainerController::class, 'index'])->name('trainer.index');

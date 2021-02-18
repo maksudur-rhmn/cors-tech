@@ -89,10 +89,9 @@
 								<h3 class="heading-sub heading-sub--white">Shortcuts</h3>
 
 								<ul class="side-list">
-									<li><a href="#" class="@yield('home-active')">Activity</a></li>
-									<li><a href="#">Validation pending</a></li>
-									<li><a href="#">Payments</a></li>
-									<li><a href="#">My coaches</a></li>
+									<li><a href="{{ url('/student') }}" class="@yield('home-active')">Activity</a></li>
+									<li><a href="{{ url('/foo') }}" class="@yield('cors-active')">My cors</a></li>
+									<li><a href="{{ route('payment.history') }}" class="@yield('history-active')">Payment Records</a></li>
 									<li><a href="{{ url('/user/profile') }}">Settings</a></li>
 								</ul>
 							</div>

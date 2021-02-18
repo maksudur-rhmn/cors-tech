@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sale;
-use Illuminate\Http\Request;
 use Auth;
+use App\Models\Sale;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Lesson;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -30,6 +33,69 @@ class StudentController extends Controller
         
         $sales = Sale::where('user_id', Auth::id())->paginate(5);
 
-        return view('student.index',compact('sales', 'data'));
+        $newCoach = User::where('role', 'coach')->get();
+         
+        $coaches = [];
+
+        foreach($newCoach->take(5) as $new)
+        {
+            $coaches['label'][] = $new->name;
+            $coaches['data'][]  = (int) $new->count();
+        }
+
+        $coaches['chart_data'] = json_encode($coaches);
+
+        return view('student.index',compact('sales', 'data', 'coaches'));
+    }
+
+    public function myCourse($id)
+    {
+        $owner = Sale::where('course_id', $id)->where('user_id', Auth::id())->where('status', 'paid')->exists();
+        if($owner)
+        {
+            $course = Course::findOrFail($id);
+            return view('student.course', compact('course'));
+        }
+        else 
+        {
+            return redirect('/student')->withSuccess('You do not have access to the cors');
+        }
+    }
+
+    public function player($slug, $id)
+    {
+        $course      = Course::where('slug', $slug)->first();
+        $lesson      = Lesson::where('id', $id)->first();
+        $isBought    = Sale::where('user_id', Auth::id())->where('course_id', $course->id)->where('status', 'paid')->exists();
+
+        if($isBought)
+        {
+            return view('student.player', compact('course', 'lesson'));
+        }
+        else 
+        {
+            return redirect('/student')->withSuccess('You do not have access to the cors');
+        }
+    }
+
+    public function foo()
+    {
+        $check = Sale::where('user_id', Auth::id())->where('status', 'paid')->exists();
+
+        if($check)
+        {
+            return back()->withSuccess('Please click on Access cors from My Cors section to continue watching lesson videos');
+        }
+        else 
+        {
+            return back()->withSuccess('You currently do not own any cors.');
+        }
+    }
+
+    public function history()
+    {
+        return view('student.history', [
+            'sales' => Sale::where('user_id', Auth::id())->get(),
+        ]);
     }
 }
