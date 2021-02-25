@@ -19,6 +19,10 @@ function students()
 {
   return \App\Models\User::where('role', 'student')->get();
 }
+function admins()
+{
+  return \App\Models\User::where('role', 'admin')->get();
+}
 
 function userCourse($id)
 {
@@ -63,4 +67,19 @@ function courses()
 function failedPayments($id)
 {
   return \App\Models\Sale::where('user_id', $id)->where('status', 'pending')->get();
+}
+
+function about()
+{
+  return  \App\Models\About::first();
+}
+
+function faqs()
+{
+  return \App\Models\Faq::all();
+}
+
+function setting()
+{
+  return \App\Models\GeneralSettings::first();
 }

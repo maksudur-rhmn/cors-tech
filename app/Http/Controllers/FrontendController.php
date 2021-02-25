@@ -17,8 +17,8 @@ class FrontendController extends Controller
 
    public function __construct()
    {
-     $this->middleware('auth')->except('index');
-     $this->middleware('verified')->except('index');
+     $this->middleware('auth')->except('index', 'about');
+     $this->middleware('verified')->except('index', 'about');
    }
    public function index()
    {
@@ -39,6 +39,11 @@ class FrontendController extends Controller
        ]);
    }
 
+   public function about()
+   {
+     return view('frontend.about');
+   }
+
    public function ownedCourses()
    {
        return view('frontend.ownedCourses', [
@@ -55,14 +60,17 @@ class FrontendController extends Controller
 
      $q = request('q');
      $feld = request('field');
+     $price = request('p');
 
      $courses = Course::where('title', 'LIKE', '%'.$q.'%')
                       ->Where('category_id', 'LIKE', '%'.$feld.'%')
+                      ->where('price', 'LIKE', '%'.$price.'%')
                       ->get();
 
     $features    = Course::where('feature', 'yes')->get();
     $categories  = Category::orderBy('category_name', 'asc')->get();
-    return view('frontend.course', compact('courses', 'categories', 'features'));
+    // return view('frontend.course', compact('courses', 'categories', 'features'));
+    return view('frontend.indexlogin', compact('courses', 'categories'));
 
    }
 
@@ -130,12 +138,10 @@ class FrontendController extends Controller
     }
    }
 
-   public function auto()
+   public function contact()
    {
        
-     Artisan::call('migrate:rollback', [
-            '--force' => true
-    ]);
+     return view('frontend.contact');
     
    }
 }

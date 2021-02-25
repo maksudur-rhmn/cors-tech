@@ -26,9 +26,9 @@
 				<!-- Sidebar Start -->
 				<aside class="sidebar">
 					<div class="main-list-box">
-						<form class="search-box">
-							<input type="text" placeholder="Search..." />
-							<button>
+						<form class="search-box" action="{{ route('front.search') }}" method="GET">
+							<input type="text" placeholder="Search..." name="q" />
+							<button type="submit">
 								<i class="fas fa-search"></i>
 							</button>
 						</form>
@@ -122,7 +122,7 @@
 									@php
 										$flag = 1;
 									@endphp
-									@forelse (categories() as $item)
+									@forelse ($categories ?? categories() as $item)
 									@foreach($item->getSubCategory->take(5) as $value)
 									<li>
 										<a href="#" class="
@@ -157,7 +157,7 @@
 										Pour vous <a href="#"><i class="fas fa-filter"></i></a>
 									</h1>
 									<div class="row">
-										@forelse (courses() as $course)
+										@forelse ($courses ?? courses() as $course)
 										<div class="col-lg-4">
 											<a href="{{ route('front.details', $course->slug) }}">
 											<div class="grid-box">

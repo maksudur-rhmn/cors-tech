@@ -2,7 +2,7 @@
 
 
 @section('title')
-Akil - Member Area Articles
+{{ config('app.name') }} - About Settings
 @endsection
 
 @section('css')
@@ -28,7 +28,7 @@ Member Area
 @endsection
 
 @section('breadcrumb')
-Member Area
+About Page Area
 @endsection
 
 @section('content')

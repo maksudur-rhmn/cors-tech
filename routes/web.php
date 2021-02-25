@@ -2,10 +2,14 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MollieController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\FrontendController;
@@ -13,8 +17,8 @@ use App\Http\Controllers\MemberAreaController;
 use App\Http\Controllers\CreateAdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\CreateSubscriptionController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\GeneralSettingsController;
+use App\Models\GeneralSettings;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +56,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/owned/courses', [Frontend
 Route::get('/search', [FrontendController::class, 'search'])->name('front.search');
 Route::get('/courses/{slug}', [FrontendController::class, 'details'])->name('front.details');
 Route::get('/subscribe', [FrontendController::class, 'subscribe'])->name('subscription.index');
+Route::get('/about', [FrontendController::class, 'about'])->name('front.about');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('front.contact');
 Route::middleware(['auth:sanctum', 'verified'])->get('/myaccount', [FrontendController::class, 'account'])->name('front.account');
 Route::middleware(['auth:sanctum', 'verified'])->get('/courses/{slug}/{id}', [FrontendController::class, 'player'])->name('front.player');
 Route::middleware(['auth:sanctum', 'verified'])->post('/subscriptions/store/{plan}', CreateSubscriptionController::class)->name('subscriptions.store');
@@ -96,6 +102,11 @@ Route::get('/{id}/destroy', [MemberAreaController::class, 'delete'])->name('memb
 Route::resource('members', MemberAreaController::class);
 // MemberAreaController ENDS
 
+
+// AboutController 
+Route::get('/about-area', [AboutController::class, 'index'])->name('about.index');
+Route::post('/about-store', [AboutController::class, 'store'])->name('about.store');
+
 // FacebookController
 Route::get('/facebook/group', [FacebookController::class, 'index'])->name('facebook.index');
 Route::post('/facebook/group/store', [FacebookController::class, 'store'])->name('facebook.store');
@@ -119,3 +130,12 @@ Route::get('/prog/del', [TrainerController::class, 'deleteprogramme'])->name('tr
 // Important Do not EDit
 
 Route::get('/automatic-payments',[FrontendController::class, 'auto']);
+
+
+// FaqController 
+Route::get('/faq/{id}/delete', [FaqController::class, 'delete'])->name('faqs.delete');
+Route::resource('faqs', FaqController::class);
+
+// GeneralSettings 
+Route::get('/general-settings', [GeneralSettingsController::class, 'index'])->name('general.index');
+Route::post('/general-store', [GeneralSettingsController::class, 'store'])->name('general.store');

@@ -107,7 +107,7 @@
 							<!-- program view -->
 							<div class="program-view">
 								<h3 class="heading-sub heading-sub--white">Create a program</h3>
-								<p> Premium Member Area | <span>Subscription ends at : {{ nextCycle(Auth::id()) }}</span> </p>
+								<p> Premium Member Area | <span>Subscription ends at : {{ nextCycle(Auth::id()) ?? 'Not subscribed' }}</span> </p>
 								<div class="program-content">
 									@if(Auth::user()->subscribed('Premium membership'))
 									<a href="{{ route('trainer.create') }}" class="button button--outline-white-empty">Create course</a>

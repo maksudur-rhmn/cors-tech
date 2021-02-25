@@ -4,8 +4,8 @@
           <ul class="footer-list">
               <li><a href="#">Become a trainer</a></li>
               <li><a href="#">Download application</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Contact-us</a></li>
+              <li><a href="{{ route('front.about') }}">About us</a></li>
+              <li><a href="{{ route('front.contact') }}">Contact-us</a></li>
           </ul>
       </div>
       <div class="footer-col">

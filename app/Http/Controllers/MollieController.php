@@ -33,7 +33,7 @@ class MollieController extends Controller
             'currency' => 'EUR', // Type of currency you want to send
             'value' => $course->price. '.00', // You must send the correct number of decimals, thus we enforce the use of strings
         ],
-        'description' => $request->coursename . ' By coachAkil',
+        'description' => $request->coursename . ' By CorsTech',
         "webhookUrl" => route('webhooks.mollie'),
         'redirectUrl' => route('payment.success'), // after the payment completion where you to redirect
         ]);
@@ -76,7 +76,7 @@ class MollieController extends Controller
      */
     public function paymentSuccess(Request $request) {
 
-        return redirect('/courses')->withSuccess('Thank you for buying the course and is accessible in your dashboard');
+        return redirect('/student')->withSuccess('Thank you for buying the course and is accessible in your dashboard');
 
     }
 }

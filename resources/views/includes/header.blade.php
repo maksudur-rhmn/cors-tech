@@ -191,15 +191,21 @@
                                 </a>
                             </li>
                             <li class="@yield('mm-active-members')">
-                                <a class="@yield('active-members')" href="{{ route('members.index') }}">
+                                <a class="@yield('active-members')" href="{{ route('about.index') }}">
                                     <i class="fab fa-accusoft"></i>
-                                    <span>Premium Articles</span>
+                                    <span>About Page Settings</span>
                                 </a>
                             </li>
                             <li class="@yield('mm-active-facebook')">
-                                <a class="@yield('active-facebook')" href="{{ route('facebook.index') }}">
-                                    <i class="fab fa-facebook"></i>
-                                    <span>Facebook Group</span>
+                                <a class="@yield('active-facebook')" href="{{ route('faqs.index') }}">
+                                    <i class="fas fa-question"></i>
+                                    <span>Frequently A Questions</span>
+                                </a>
+                            </li>
+                            <li class="@yield('mm-active-facebook')">
+                                <a class="@yield('active-facebook')" href="{{ route('general.index') }}">
+                                    <i class="fa fa-cogs"></i>
+                                    <span>General Settings</span>
                                 </a>
                             </li>
                         </ul>

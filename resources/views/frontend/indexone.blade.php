@@ -28,22 +28,28 @@
 						<h1>A sport, a program, a coach</h1>
 					</div>
 					<div class="hero-cta">
-						<form class="form-cta">
+						<form id="my-form" class="form-cta" action="{{ route('front.search') }}" method="get">
 							<div class="form-cta-box">
 								
 								<img src="{{ asset('cors_assets/img/icons/search-icon.png') }}" alt="" />
-								<input type="text" placeholder="Football, reinforcement" />
+								<input type="text" name="q" placeholder="Football, reinforcement" />
 							</div>
 							<div class="form-cta-box">
 								<img src="{{ asset('cors_assets/img/icons/category-icon.png') }}" alt="" />
-								<input type="text" placeholder="Categories" />
+								<select name="field">
+									<option value=""> -Select category- </option>
+									@foreach (categories() as $category)
+										<option value="{{ $category->id }}">{{ $category->category_name }}</option>
+									@endforeach
+								</select>
 							</div>
 							<div class="form-cta-box">
 								<img src="{{ asset('cors_assets/img/icons/money-icon.png') }}" alt="" />
-								<input type="text" placeholder="Price" />
+								<input type="text" placeholder="Price"  name="p"/>
 							</div>
+						
 						</form>
-						<button class="form-cta-button">Go</button>
+						<button type="submit" form='my-form' class="form-cta-button">Go</button>
 					</div>
 				</div>
 			</div>

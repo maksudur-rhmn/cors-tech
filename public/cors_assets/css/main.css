@@ -701,10 +701,7 @@ ul {
   background-size: cover;
   background-position: center;
   min-height: 100vh; }
-  .bg-cover--1 {
-    background-image: linear-gradient(to bottom, black, transparent), url(../img/cover-bg.jpg); }
-  .bg-cover--2 {
-    background-image: linear-gradient(to bottom, black, transparent), url(../img/cover-bg-1.jpg); }
+
   .bg-cover--3 {
     background-image: linear-gradient(to bottom, black, transparent), url(../img/cover-bg-2.jpg); }
   .bg-cover-content {

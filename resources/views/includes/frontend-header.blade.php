@@ -26,7 +26,7 @@
 	<body>
 		<!-- Navbar Start -->
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="{{ url('/') }}">
 				<div class="navbar-box">
                     
 					<img src="{{ asset('cors_assets/img/icons/logo-black.png') }}" alt="" />
@@ -46,9 +46,9 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<form class="nav-form">
-					<input type="text" placeholder="Search" />
-					<button class="nav-search">
+				<form class="nav-form" action="{{ route('front.search') }}" method="GET">
+					<input type="text" placeholder="Search" name="q"/>
+					<button type="submit" class="nav-search">
 						<i class="fas fa-search"></i>
 					</button>
 				</form>
