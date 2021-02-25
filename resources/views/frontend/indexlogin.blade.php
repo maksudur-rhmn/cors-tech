@@ -34,13 +34,21 @@
 						</form>
 						<a href="#" class="main-list-title"> <h3>Categories</h3> </a>
 						<ul class="main-list">
-							<li class="active">
-								<a href="#">All courses</a>
+							<li class="
+							@if(request()->field == '')
+								active
+							@endif
+							">
+								<a href="{{ url('/home') }}">All courses</a>
 							</li>
 
 							@foreach (categories() as $item)
-							<li>
-								<a href="#">{{ ucfirst($item->category_name) }}</a>
+							<li class="
+								@if(request()->field == $item->id)
+								active
+								@endif
+							">
+								<a href="{{ url('/search?field=') }}{{ $item->id }}">{{ ucfirst($item->category_name) }}</a>
 							</li>
 							@endforeach
 						</ul>
@@ -51,10 +59,29 @@
 
 					<div class="main-register-box">
 						<img src="{{ asset('cors_assets/img/icons/button-graphic.png') }}" class="main-register-background" alt="" />
-						<h3>Account</h3>
-						<p>Visit your dashboard</p>
+						<h3>
+							@auth
+							Account
+							@endauth
+							@guest
+								Sign in
+							@endguest
+						</h3>
+						<p>
+							@auth
+							Visit your dashboard
+							@endauth
+							@guest
+								Log in to Visit your dashboard
+							@endguest
+						</p>
 
+						@auth
 						<a href="{{ url('/dashboard') }}" class="button button--outline-white">Dashboard</a>
+						@endauth
+						@guest
+						<a href="{{ url('/login') }}" class="button button--outline-white">Login</a>
+						@endguest
 					</div>
 				</aside>
 				<!-- Sidebar Ends -->
@@ -125,7 +152,7 @@
 									@forelse ($categories ?? categories() as $item)
 									@foreach($item->getSubCategory->take(5) as $value)
 									<li>
-										<a href="#" class="
+										<a href="{{ url('/search?sub=') }}{{ $value->id }}" class="
 											@if($flag == 1)
 											green
 											@elseif($flag == 2)

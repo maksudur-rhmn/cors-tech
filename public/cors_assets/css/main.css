@@ -702,8 +702,6 @@ ul {
   background-position: center;
   min-height: 100vh; }
 
-  .bg-cover--3 {
-    background-image: linear-gradient(to bottom, black, transparent), url(../img/cover-bg-2.jpg); }
   .bg-cover-content {
     text-align: center;
     position: absolute;

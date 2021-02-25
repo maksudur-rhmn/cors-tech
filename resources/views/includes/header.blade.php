@@ -39,7 +39,7 @@
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
                             <a href="{{ route('dashboard') }}" class="logo logo-dark">
-                                <span style="color: #000; font-weight: bold;">
+                                <span style="color: #fff; font-weight: bold;">
                                     CORS TECH
                                 </span>
                             </a>
@@ -125,7 +125,7 @@
                             <img src="{{ asset('dashboard_assets/images/logo-sm.png') }}" alt="" height="20">
                         </span> --}}
 
-                        <span style="color: #000; font-weight: bold;" >CORS TECH</span>
+                        <span style="color: #fff; font-weight: bold;" >CORS TECH</span>
                     </a>
                 </div>
 
@@ -200,6 +200,12 @@
                                 <a class="@yield('active-facebook')" href="{{ route('faqs.index') }}">
                                     <i class="fas fa-question"></i>
                                     <span>Frequently A Questions</span>
+                                </a>
+                            </li>
+                            <li class="@yield('mm-active-facebook')">
+                                <a class="@yield('active-facebook')" href="{{ route('become.index') }}">
+                                    <i class="fab fa-accusoft"></i>
+                                    <span>Trainer Settings</span>
                                 </a>
                             </li>
                             <li class="@yield('mm-active-facebook')">

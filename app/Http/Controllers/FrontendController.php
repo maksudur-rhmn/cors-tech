@@ -17,8 +17,8 @@ class FrontendController extends Controller
 
    public function __construct()
    {
-     $this->middleware('auth')->except('index', 'about');
-     $this->middleware('verified')->except('index', 'about');
+     $this->middleware('auth')->except('index', 'about', 'search');
+     $this->middleware('verified')->except('index', 'about', 'search');
    }
    public function index()
    {
@@ -61,9 +61,11 @@ class FrontendController extends Controller
      $q = request('q');
      $feld = request('field');
      $price = request('p');
+     $sub = request('sub');
 
      $courses = Course::where('title', 'LIKE', '%'.$q.'%')
                       ->Where('category_id', 'LIKE', '%'.$feld.'%')
+                      ->Where('sub_category_id', 'LIKE', '%'.$sub.'%')
                       ->where('price', 'LIKE', '%'.$price.'%')
                       ->get();
 
@@ -143,5 +145,10 @@ class FrontendController extends Controller
        
      return view('frontend.contact');
     
+   }
+
+   public function instructor()
+   {
+     return view('frontend.instructor');
    }
 }

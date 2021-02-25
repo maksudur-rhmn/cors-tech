@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\User;
+use App\Models\BecomeTrainer;
+use App\Models\GeneralSettings;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\SaleController;
@@ -16,9 +18,9 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MemberAreaController;
 use App\Http\Controllers\CreateAdminController;
 use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\CreateSubscriptionController;
+use App\Http\Controllers\BecomeTrainerController;
 use App\Http\Controllers\GeneralSettingsController;
-use App\Models\GeneralSettings;
+use App\Http\Controllers\CreateSubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,7 @@ Route::get('/courses/{slug}', [FrontendController::class, 'details'])->name('fro
 Route::get('/subscribe', [FrontendController::class, 'subscribe'])->name('subscription.index');
 Route::get('/about', [FrontendController::class, 'about'])->name('front.about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('front.contact');
+Route::get('/become/an/instructor', [FrontendController::class, 'instructor'])->name('front.instructor');
 Route::middleware(['auth:sanctum', 'verified'])->get('/myaccount', [FrontendController::class, 'account'])->name('front.account');
 Route::middleware(['auth:sanctum', 'verified'])->get('/courses/{slug}/{id}', [FrontendController::class, 'player'])->name('front.player');
 Route::middleware(['auth:sanctum', 'verified'])->post('/subscriptions/store/{plan}', CreateSubscriptionController::class)->name('subscriptions.store');
@@ -106,6 +109,10 @@ Route::resource('members', MemberAreaController::class);
 // AboutController 
 Route::get('/about-area', [AboutController::class, 'index'])->name('about.index');
 Route::post('/about-store', [AboutController::class, 'store'])->name('about.store');
+
+// BecomeTrainerController 
+Route::get('/be/a/trainer/settings', [BecomeTrainerController::class, 'index'])->name('become.index');
+Route::post('/be/a/trainer/settings/store', [BecomeTrainerController::class, 'store'])->name('become.store');
 
 // FacebookController
 Route::get('/facebook/group', [FacebookController::class, 'index'])->name('facebook.index');

@@ -69,7 +69,7 @@
 					@forelse (categories() as $item)
 					@foreach($item->getSubCategory->take(5) as $value)
 					<li>
-						<a href="#" class="
+						<a href="{{ url('/search?sub=') }}{{ $value->id }}" class="
 							@if($flag == 1)
 							green
 							@elseif($flag == 2)

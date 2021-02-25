@@ -73,6 +73,10 @@ function about()
 {
   return  \App\Models\About::first();
 }
+function become()
+{
+  return  \App\Models\BecomeTrainer::first();
+}
 
 function faqs()
 {

@@ -2,7 +2,7 @@
   <div class="footer-row">
       <div class="footer-col">
           <ul class="footer-list">
-              <li><a href="#">Become a trainer</a></li>
+              <li><a href="{{ route('front.instructor') }}">Become a trainer</a></li>
               <li><a href="#">Download application</a></li>
               <li><a href="{{ route('front.about') }}">About us</a></li>
               <li><a href="{{ route('front.contact') }}">Contact-us</a></li>

@@ -28,7 +28,7 @@
 	<body class="dark-mode bg-black">
 		<!-- Navbar Start -->
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand text-white" href="#">
+			<a class="navbar-brand text-white" href="{{ url('/') }}">
 				<div class="navbar-box">
 					<img src="{{ asset('cors_assets/img/icons/logo-white.png') }}" alt="cover" />
 				</div>
