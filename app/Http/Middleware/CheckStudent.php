@@ -19,7 +19,7 @@ class CheckStudent
     {
         if(Auth::user()->role == 'student')
         {
-            return redirect('/student');
+            return redirect('/home');
         }
         if(Auth::user()->role == 'admin')
         {

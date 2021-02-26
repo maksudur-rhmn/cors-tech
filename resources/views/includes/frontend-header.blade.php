@@ -54,7 +54,7 @@
 				</form>
 				<ul class="navbar-nav ml-auto mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="{{ url('/register') }}">Become an Instructor</a>
+						<a class="nav-link" href="{{ url('/become/an/instructor') }}">Become an Instructor</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url('/home') }}">Courses</a>

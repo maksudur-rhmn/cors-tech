@@ -15,11 +15,6 @@ use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
 
-   public function __construct()
-   {
-     $this->middleware('auth')->except('index', 'about', 'search');
-     $this->middleware('verified')->except('index', 'about', 'search');
-   }
    public function index()
    {
        return view('frontend.indexone');

@@ -36,12 +36,7 @@
 							</div>
 							<div class="form-cta-box">
 								<img src="{{ asset('cors_assets/img/icons/category-icon.png') }}" alt="" />
-								<select name="field">
-									<option value=""> -Select category- </option>
-									@foreach (categories() as $category)
-										<option value="{{ $category->id }}">{{ $category->category_name }}</option>
-									@endforeach
-								</select>
+								<input type="text" name="q" placeholder="Football, reinforcement" />
 							</div>
 							<div class="form-cta-box">
 								<img src="{{ asset('cors_assets/img/icons/money-icon.png') }}" alt="" />

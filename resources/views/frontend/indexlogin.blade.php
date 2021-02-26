@@ -77,7 +77,13 @@
 						</p>
 
 						@auth
-						<a href="{{ url('/dashboard') }}" class="button button--outline-white">Dashboard</a>
+						<a href="
+							@if(Auth::user()->role == 'student')
+							{{ url('/student') }}
+							@else 
+							{{ url('/dashboard') }}
+							@endif
+						" class="button button--outline-white">Dashboard</a>
 						@endauth
 						@guest
 						<a href="{{ url('/login') }}" class="button button--outline-white">Login</a>

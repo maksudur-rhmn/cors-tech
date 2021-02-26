@@ -116,7 +116,7 @@
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="landing-box">
-							<figure class="landing-icon-sm"><img src="img/icons/icon-1.jpg" alt="" /></figure>
+							<figure class="landing-icon-sm"><img src="{{ asset('cors_assets/img/icons/icon-1.jpg') }}" alt="" /></figure>
 							<h3 class="heading-xs heading-xs--main">Sign up</h3>
 							<p class="landing-paragraph">
 								{{ become()->benefits_one }}
@@ -125,7 +125,7 @@
 					</div>
 					<div class="col-lg-4">
 						<div class="landing-box">
-							<figure class="landing-icon-sm"><img src="img/icons/icon-2.jpg" alt="" /></figure>
+							<figure class="landing-icon-sm"><img src="{{ asset('cors_assets/img/icons/icon-2.jpg') }}" alt="" /></figure>
 							<h3 class="heading-xs heading-xs--main">Sell your programs</h3>
 							<p class="landing-paragraph">
 								{{ become()->benefits_two }}
@@ -134,7 +134,7 @@
 					</div>
 					<div class="col-lg-4">
 						<div class="landing-box">
-							<figure class="landing-icon-sm"><img src="img/icons/icon-3.jpg" alt="" /></figure>
+							<figure class="landing-icon-sm"><img src="{{ asset('cors_assets/img/icons/icon-3.jpg') }}" alt="" /></figure>
 							<h3 class="heading-xs heading-xs--main">Improve yourself</h3>
 							<p class="landing-paragraph">
 								{{ become()->benefits_three }}
@@ -174,7 +174,7 @@
 							Aliquam tempor, elit vitae interdum dapibus, mauris mi tristique purus, eget venenatis
 							arcu orci vel tortor.
 						</p>
-						<a href="{{ route('frontend.contact') }}" class="button button--outline-white-empty">Contact team</a>
+						<a href="{{ route('front.contact') }}" class="button button--outline-white-empty">Contact team</a>
 					</div>
 				</div>
 			</div>
