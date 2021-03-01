@@ -176,16 +176,16 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="dashboard-footer">
+                                                <a href="{{ route('course.store') }}"  onclick="event.preventDefault();
+                                                this.closest('form').submit();"class="button button--white">Save</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="dashboard-footer">
-                            <a href="{{ route('course.store') }}"  onclick="event.preventDefault();
-                            this.closest('form').submit();"class="button button--white">Save</a>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

@@ -697,7 +697,6 @@ ul {
     outline: 0; }
 
 .bg-cover {
-  background-image: linear-gradient(to bottom, black, transparent), url(../img/bg-dark.jpg);
   background-size: cover;
   background-position: center;
   min-height: 100vh; }

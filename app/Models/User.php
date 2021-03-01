@@ -25,12 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -66,5 +61,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getCourse()
     {
         return $this->hasMany('App\Models\Course');
+    }
+    public function getSale()
+    {
+      return $this->hasMany('App\Models\Sale', 'trainer_id', 'id');
+    }
+
+    public function getProfile()
+    {
+        return $this->hasOne('App\Models\CoachInfo');
     }
 }

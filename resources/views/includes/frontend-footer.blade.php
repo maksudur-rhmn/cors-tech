@@ -29,10 +29,11 @@
               <li><a href="#">Language</a></li>
           </ul>
           <ul class="footer-language">
-              <li><a href="#">FR</a></li>
-              <li><a href="#">EN</a></li>
-              <li><a href="#">ES</a></li>
-              <li><a href="#">DE</a></li>
+              <li><a href="#googtrans(en|es)" class="" data-lang="es">ESPANOL</a></li>
+              <li><a href="#googtrans(en|fr)" class="lang-fr lang-select" data-lang="fr">FRENCH</a></li>
+              <li><a href="#googtrans(en|en)" class="lang-en lang-select" data-lang="en">ENGLISH</a></li>
+            <li><a href="#googtrans(en|de)" class="" data-lang="de">GERMAN</a></li>
+            <li><a href="#googtrans(en|en)" class="lang-es lang-select" data-lang="en"></a></li>
           </ul>
       </div>
   </div>
@@ -100,18 +101,22 @@ aria-hidden="true"
                 <button type="submit" class="button button--outline-main-empty">Register</button>
             </form>
             <div class="modal-social">
-                {{-- <div class="modal-social-box">
-                    <button class="modal-social--button modal-social--facebook">
-                        <i class="fab fa-facebook-f"></i>
-                        Login via Facebook
-                    </button>
+                 <div class="modal-social-box">
+                    <a href="{{ url('/auth/facebook') }}">
+                        <button style="outline: none;" class="modal-social--button modal-social--facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Login via Facebook
+                        </button>
+                    </a>
                 </div>
                 <div class="modal-social-box">
-                    <button class="modal-social--button modal-social--google">
+                    <a href="{{ url('auth/google') }}">
+                    <button style="outline:none;" class="modal-social--button modal-social--google">
                         <i class="fab fa-google"></i>
                         Login by Google
                     </button>
-                </div> --}}
+                </a>
+                </div> 
             </div>
         </div>
     </div>
@@ -153,20 +158,24 @@ aria-hidden="true"
                             @endif
                           <button type="submit" class="button button--outline-main-empty">Login</button>
 						</form>
-						{{-- <div class="modal-social">
+						<div class="modal-social">
 							<div class="modal-social-box">
-								<button class="modal-social--button modal-social--facebook">
+                                <a href="{{ url('/auth/facebook') }}">
+								<button style="outline:none;" class="modal-social--button modal-social--facebook">
 									<i class="fab fa-facebook-f"></i>
 									Login via Facebook
 								</button>
+                            </a>
 							</div>
 							<div class="modal-social-box">
-								<button class="modal-social--button modal-social--google">
+                                <a href="{{ url('auth/google') }}">
+								<button style="outline: none;" class="modal-social--button modal-social--google">
 									<i class="fab fa-google"></i>
 									Login by Google
 								</button>
+                                </a>
 							</div>
-						</div> --}}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -180,6 +189,36 @@ aria-hidden="true"
 
 <!-- Custom JS -->
 <script src="{{ asset('cors_assets/js/main.js') }}"></script>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+    }
+
+	function triggerHtmlEvent(element, eventName) {
+	  var event;
+	  if (document.createEvent) {
+		event = document.createEvent('HTMLEvents');
+		event.initEvent(eventName, true, true);
+		element.dispatchEvent(event);
+	  } else {
+		event = document.createEventObject();
+		event.eventType = eventName;
+		element.fireEvent('on' + event.eventType, event);
+	  }
+	}
+
+	jQuery('.lang-select').click(function() {
+	  var theLang = jQuery(this).attr('data-lang');
+	  jQuery('.goog-te-combo').val(theLang);
+
+	  //alert(jQuery(this).attr('href'));
+	  window.location = jQuery(this).attr('href');
+	  location.reload();
+
+	});
+  </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 @yield('custom-js')
 </body>

@@ -56,7 +56,7 @@
 			<div class="container">
 				<ul class="filter-list">
 					<li>
-						<a href="#" class="active">All the programmes</a>
+						<a href="{{ url('/home') }}" class="active">All the programmes</a>
 					</li>
 					@php
 						$flag = 1;
@@ -97,6 +97,7 @@
 				<div class="row">
 					@forelse (categories()->take(4) as $item)
 					<div class="col-lg-3">
+						<a href="{{ url('/search?field=') }}{{ $item->id }}">
 						<div class="grid-box">
 							<img src="{{ asset('uploads/categories') }}/{{ $item->image }}" alt="" />
 							<div class="grid-footer">
@@ -105,6 +106,7 @@
 								<i class="fas fa-chevron-right"></i>
 							</div>
 						</div>
+					</a>
 					</div>
 					@empty
 						<p>No data found</p>
@@ -122,6 +124,7 @@
 				<div class="row">
 				@forelse (trainers() as $item)
 				<div class="col-lg-3">
+				<a href="{{ route('front.coachProfile', $item->id) }}">
 					<div class="grid-box">
 						<img src="{{ $item->profile_photo_url }}" alt="" />
 						<div class="grid-footer">
@@ -138,6 +141,7 @@
 							</div>
 						</div>
 					</div>
+				</a>
 				</div>
 				@empty
 					<p>No trainers found.</p>

@@ -10,6 +10,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MollieController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\CategoryController;
@@ -19,7 +20,9 @@ use App\Http\Controllers\MemberAreaController;
 use App\Http\Controllers\CreateAdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BecomeTrainerController;
+use App\Http\Controllers\CoachInfoController;
 use App\Http\Controllers\GeneralSettingsController;
+use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\CreateSubscriptionController;
 
 /*
@@ -61,6 +64,7 @@ Route::get('/subscribe', [FrontendController::class, 'subscribe'])->name('subscr
 Route::get('/about', [FrontendController::class, 'about'])->name('front.about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('front.contact');
 Route::get('/become/an/instructor', [FrontendController::class, 'instructor'])->name('front.instructor');
+Route::get('/info/{id}/coach', [FrontendController::class, 'coachProfile'])->name('front.coachProfile');
 Route::middleware(['auth:sanctum', 'verified'])->get('/myaccount', [FrontendController::class, 'account'])->name('front.account');
 Route::middleware(['auth:sanctum', 'verified'])->get('/courses/{slug}/{id}', [FrontendController::class, 'player'])->name('front.player');
 Route::middleware(['auth:sanctum', 'verified'])->post('/subscriptions/store/{plan}', CreateSubscriptionController::class)->name('subscriptions.store');
@@ -118,6 +122,21 @@ Route::post('/be/a/trainer/settings/store', [BecomeTrainerController::class, 'st
 Route::get('/facebook/group', [FacebookController::class, 'index'])->name('facebook.index');
 Route::post('/facebook/group/store', [FacebookController::class, 'store'])->name('facebook.store');
 // FacebookController ENDS
+
+
+// SocialController
+Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
+Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
+
+
+// GoogleSocialiteController
+Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
+Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);
+
+
+// CoachInfoController 
+Route::get('/coach-info', [CoachInfoController::class, 'index'])->name('coach.index');
+Route::post('/coach-info-store', [CoachInfoController::class, 'store'])->name('coach.store');
 
 
 //StudentController 

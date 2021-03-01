@@ -81,8 +81,8 @@
 										<h3 class="heading-sub text-right">Payment</h3>
 										<div class="modal-payment">
 											<div class="modal-payment-content">
-												<h3 class="heading-sub">Points Cors</h3>
-												<p>155 Cors experience points reported for this training.</p>
+												{{-- <h3 class="heading-sub">Points Cors</h3>
+												<p>155 Cors experience points reported for this training.</p> --}}
 												<h3 class="heading-sub">Payment method</h3>
 												<i class="fab fa-cc-paypal"></i>
 												<i class="fab fa-cc-mastercard"></i>
@@ -436,7 +436,7 @@
 										<h3>{{ $course->getUser->name }}</h3>
 										<div class="profile-buttons-row">
 											<div class="profile-buttons">
-												<a href="#" class="profile-button"> {{ $course->getUser->getCourse->count() }} </a>
+												<a href="{{ route('front.coachProfile', $course->user_id) }}" class="profile-button"> {{ $course->getUser->getCourse->count() }} </a>
 												<span>Programmes</span>
 											</div>
 											<div class="profile-buttons">
@@ -454,11 +454,11 @@
 											<a href="#"><i class="fas fa-link"></i> {{ $course->getUser->name }} </a>
 										</div>
 										<div class="profile-link">
-											<a href="#"><i class="fab fa-instagram"></i> @annaclark01</a>
+											<a href="#"><i class="fab fa-instagram"></i> {{ $course->getUser->getProfile->instagram ?? 'Not available' }}</a>
 										</div>
 									</div>
 									<div class="profile-cta">
-										<a href="#" class="button button--outline-white-empty">See profile</a>
+										<a href="{{ route('front.coachProfile', $course->user_id) }}" class="button button--outline-white-empty">See profile</a>
 									</div>
 								</div>
 							</div>
@@ -496,7 +496,7 @@
 										<a href="#">Number of sessions<span>{{ $course->getLessons->count() }}</span> </a>
 									</li>
 									<li>
-										<a href="#">Program language <span>FR</span></a>
+										<a href="#">Program language <span>FR, EN</span></a>
 									</li>
 
 									<li>
@@ -534,7 +534,7 @@
 							</div>
 
 							<!-- sidebar technical -->
-							{{-- <div class="primary-technical">
+							 {{-- <div class="primary-technical">
 								<h3>Technical details</h3>
 								<ul>
 									<li>
@@ -586,12 +586,12 @@
 										<span>120</span>
 									</li>
 								</ul>
-							</div> --}}
+							</div>  --}}
 
 							<!-- sidebar problem -->
 							<div class="primary-problem">
 								<h3>A problem ?</h3>
-								<a href="#">Contact us or report</a>
+								<a href="{{ route('front.contact') }}">Contact us or report</a>
 							</div>
 						</aside>
 					</div>

@@ -81,8 +81,10 @@
 				<li>
 					@if(isAdmin() == 'admin')
 					<a href="{{ url('/dashboard') }}" class="nav-link">Admin Dashboard</a>
-					@else 
-					<a href="{{ url('/dashboard') }}" class="nav-link">Account</a>
+					@elseif(Auth::user()->role == 'student')
+					<a href="{{ url('/student') }}" class="nav-link">Account</a>
+					@elseif(Auth::user()->role == 'coach')
+					<a href="{{ url('/trainer') }}" class="nav-link">Account</a>
 					@endif
 				</li>
 				 @endauth

@@ -80,6 +80,8 @@
 						<a href="
 							@if(Auth::user()->role == 'student')
 							{{ url('/student') }}
+							@elseif(Auth::user()->role == 'coach')
+							{{ url('/trainer') }}
 							@else 
 							{{ url('/dashboard') }}
 							@endif
@@ -150,7 +152,7 @@
 							<section class="filter">
 								<ul class="filter-list">
 									<li>
-										<a href="#" class="active">All courses</a>
+										<a href="{{ url('/home') }}" class="active">All courses</a>
 									</li>
 									@php
 										$flag = 1;
@@ -186,9 +188,9 @@
 							<!-- Quick Access Start -->
 							<section class="grid grid--two">
 								<div class="container-fluid">
-									<h1>
+									{{-- <h1>
 										Pour vous <a href="#"><i class="fas fa-filter"></i></a>
-									</h1>
+									</h1> --}}
 									<div class="row">
 										@forelse ($courses ?? courses() as $course)
 										<div class="col-lg-4">
@@ -213,7 +215,7 @@
 													<div class="grid-footer-side">
 														<h3>{{ ucfirst($course->title) }}</h3>
 														<div class="grid-footer-row">
-															<p>{{ $course->length }}</p>
+															<p>{{ $course->course_length }}</p>
 															{{-- <a href="#"><i class="far fa-comment"></i> 20 </a> --}}
 														</div>
 													</div>

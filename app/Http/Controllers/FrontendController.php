@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Artisan;
+use App\Models\Sale;
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Category;
-use App\Models\Sale;
-use App\Models\MemberArea;
 use App\Models\Facebook;
-use Auth;
-use Artisan;
+use App\Models\CoachInfo;
+use App\Models\MemberArea;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -146,4 +148,16 @@ class FrontendController extends Controller
    {
      return view('frontend.instructor');
    }
+
+   public function coachProfile($id)
+   {
+     $data = CoachInfo::where('user_id', $id)->first();
+
+     $coach = User::findOrFail($id);
+
+     return view('frontend.coach-profile', compact('data', 'coach'));
+   }
+
+
+  // END 
 }

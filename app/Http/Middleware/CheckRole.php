@@ -19,11 +19,11 @@ class CheckRole
     {
         if(Auth::user()->role == 'student')
         {
-            return redirect('/student');
+            return redirect('/home');
         }
         if(Auth::user()->role == 'coach')
         {
-            return redirect('/trainer');
+            return redirect('/home');
         }
         return $next($request);
     }

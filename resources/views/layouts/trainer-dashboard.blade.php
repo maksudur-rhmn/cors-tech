@@ -97,9 +97,10 @@
 									<li><a href="{{ route('trainerlesson.create') }}" class="@yield('lesson-create')">Add Lesson</a></li>
 									<li><a href="{{ route('trainerdelete.programme') }}" class="@yield('programme-delete')">Delete Programme</a></li>
 									<li>
-										<a href="#">All coaches <span>{{ trainers()->count() }}</span></a>
+										<a href="{{ url('/') }}">All coaches <span>{{ trainers()->count() }}</span></a>
 									</li>
-									<li><a href="{{ url('/user/profile') }}">Settings</a></li>
+									<li><a href="{{ url('/user/profile') }}">Account Settings</a></li>
+									<li><a class="@yield('profile-active')" href="{{ route('coach.index') }}">Profile Settings</a></li>
 									{{-- <li><a href="#">Other</a></li> --}}
 								</ul>
 							</div>
@@ -107,7 +108,17 @@
 							<!-- program view -->
 							<div class="program-view">
 								<h3 class="heading-sub heading-sub--white">Create a program</h3>
-								<p> Premium Member Area | <span>Subscription ends at : {{ nextCycle(Auth::id()) ?? 'Not subscribed' }}</span> </p>
+								<p> Premium Member Area | 
+									@if(Auth::user()->subscribed('Premium membership'))
+									<span>
+										Subscription ends at : {{ nextCycle(Auth::id()) }}
+									</span>
+									@else 
+									<span>
+										Subscription ends at : 'Not subscribed'
+									</span>
+									@endif
+								</p>
 								<div class="program-content">
 									@if(Auth::user()->subscribed('Premium membership'))
 									<a href="{{ route('trainer.create') }}" class="button button--outline-white-empty">Create course</a>
