@@ -7,6 +7,17 @@
 @section('custom-js')
 <script>
 		$("#logModal").modal();
+		
+</script>
+<script>
+	$('#register').on('click', function(){
+
+		$("#myModal").modal();
+	})
+	$('#login').on('click', function(){
+
+		$("#logModal").modal();
+	})
 </script>
 @endsection
 

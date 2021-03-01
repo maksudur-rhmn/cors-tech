@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'aa0608c84e062676c89d4740e657d36bd72c635b',
+    'reference' => 'c194065cefe75de1890443f437b11d75240a3607',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -195,6 +195,15 @@
       array (
       ),
       'reference' => 'fc10d778e4b84d5bd315dad194661e091d307c6f',
+    ),
+    'geoip2/geoip2' => 
+    array (
+      'pretty_version' => 'v2.11.0',
+      'version' => '2.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd01be5894a5c1a3381c58c9b1795cd07f96c30f7',
     ),
     'graham-campbell/result-type' => 
     array (
@@ -535,7 +544,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'aa0608c84e062676c89d4740e657d36bd72c635b',
+      'reference' => 'c194065cefe75de1890443f437b11d75240a3607',
     ),
     'laravel/sanctum' => 
     array (
@@ -608,6 +617,24 @@
       array (
       ),
       'reference' => 'ffaa43e02e9b9ae56c8ae16a438b48844f6e9147',
+    ),
+    'maxmind-db/reader' => 
+    array (
+      'pretty_version' => 'v1.10.0',
+      'version' => '1.10.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '07f84d969cfc527ce49388558a366ad376f1f35c',
+    ),
+    'maxmind/web-service-common' => 
+    array (
+      'pretty_version' => 'v0.8.1',
+      'version' => '0.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '32f274051c543fc865e5a84d3a2c703913641ea8',
     ),
     'mobiledetect/mobiledetectlib' => 
     array (
@@ -1175,6 +1202,15 @@
       array (
       ),
       'reference' => '626586115d0ed31cb71483be55beb759b5af5a3c',
+    ),
+    'stevebauman/location' => 
+    array (
+      'pretty_version' => 'v6.1.0',
+      'version' => '6.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7f5085f23612aec628507c83c0913cc1d5ba8bdb',
     ),
     'swiftmailer/swiftmailer' => 
     array (

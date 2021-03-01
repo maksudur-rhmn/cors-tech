@@ -2,11 +2,12 @@
    
 namespace App\Http\Controllers;
    
-use App\Http\Controllers\Controller;
-use Socialite;
 use Auth;
 use Exception;
+use Socialite;
 use App\Models\User;
+use App\Http\Controllers\Controller;
+use Stevebauman\Location\Facades\Location;
    
 class GoogleSocialiteController extends Controller
 {
@@ -45,7 +46,8 @@ class GoogleSocialiteController extends Controller
                     'email' => $user->email,
                     'social_id'=> $user->id,
                     'social_type'=> 'google',
-                    'password' => encrypt('my-google')
+                    'password' => encrypt('my-google'),
+                    'ip'       => Location::get(request()->ip())->countryName,
                 ]);
      
                 Auth::login($newUser);

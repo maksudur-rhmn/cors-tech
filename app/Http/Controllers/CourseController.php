@@ -104,7 +104,7 @@ class CourseController extends Controller
          ]);
 
          $uploaded_file = $request->file('cover_image');
-         $file_name = $course->slug. '-' .$course->id. '.' .$uploaded_file->extension('cover_image');
+         $file_name = $course->id. '.' .$uploaded_file->extension('cover_image');
          $location = public_path('uploads/course/' . $file_name);
          Image::make($uploaded_file)->save($location);
 

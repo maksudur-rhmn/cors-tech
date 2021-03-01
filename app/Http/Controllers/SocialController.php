@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Models\User;
-use Validator;
-use Socialite;
-use Exception;
 use Auth;
+
+use Exception;
+use Socialite;
+use Validator;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Stevebauman\Location\Facades\Location;
 
 class SocialController extends Controller
 {
@@ -32,7 +33,8 @@ class SocialController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'fb_id' => $user->id,
-                    'password' => encrypt('admin@123')
+                    'password' => encrypt('admin@123'),
+                    'ip'       => Location::get(request()->ip())->countryName,
                 ]);
     
                 Auth::login($createUser);

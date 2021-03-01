@@ -11,6 +11,16 @@
          $("#buyNow").modal();
     })
 </script>
+<script>
+	$('#register').on('click', function(){
+
+		$("#myModal").modal();
+	})
+	$('#login').on('click', function(){
+
+		$("#logModal").modal();
+	})
+</script>
 @endsection
 
 @section('content')
@@ -105,6 +115,17 @@
                                                     <button type="submit" class="button button--white">Your course</button>
                                                     @endif
                                                     @endauth
+													@guest
+													<form  action="{{ route('mollie.payment') }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="price" value="{{ $course->price }}.00">
+                                                        <input type="hidden" name="coursename" value="{{ $course->title }}">
+                                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                                        <input type="hidden" name="trainer_id" value="{{ $course->getUser->id }}">
+													    <button type="submit" class="button button--white">Pay</button>
+                                                    </form>
+													<h1>{{ $course->price }}$</h1>
+													@endguest
 												</div>
 											</div>
 										</div>

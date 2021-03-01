@@ -1,31 +1,141 @@
 @extends('layouts.frontend')
 
- @section('title')
-   AKIL - Register
- @endsection
+@section('title')
+	CORS TECH | Home
+@endsection
+
+@section('custom-js')
+<script>
+		$("#myModal").modal();
+		
+</script>
+<script>
+	$('#register').on('click', function(){
+
+		$("#myModal").modal();
+	})
+	$('#login').on('click', function(){
+
+		$("#logModal").modal();
+	})
+</script>
+@endsection
 
 @section('content')
-  <div class="section-7">
-      <div class="m_container formbg w-container">
-        <h1 class="title center">Register.</h1>
-        <h4 class="main_head smalltop center">RECEIVE A <strong class="accent">FREE COURSE</strong>!<strong class="accent"></strong></h4>
-        <div class="form-block w-form">
-          <form id="email-form" method="POST" action="{{ route('register') }}" class="access_form">
-            @csrf
-            <label for="name" class="field-label">Name</label>
-            <input type="text" name="name" :value="old('name')" required autofocus autocomplete="name" class="text-field w-input" id="name">
-            <label for="email" class="field-label">E-Mail Adress</label>
-            <input type="email" name="email" :value="old('email')" required  id="email" class="text-field w-input">
-            <label for="password" class="field-label">Password</label>
-            <input type="password" name="password" required autocomplete="new-password" class="text-field w-input">
-            <label for="password_confirm-2" class="field-label">Confirm Password</label>
-            <input type="password" name="password_confirmation" required autocomplete="new-password" id="password_confirm" class="text-field w-input">
-            <button type="submit" style="margin-bottom:20px;" class="small_button center w-button">Register</button>
-            <a class="footer-link forgot_password" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-          </form>
-        </div>
-      </div>
-    </div>
+
+		<!-- Hero Start -->
+		<header class="header">
+			<div class="container">
+				<div class="header-hero">
+					<div class="hero-content">
+						<h6>Rechercher</h6>
+						<h1>A sport, a program, a coach</h1>
+					</div>
+					<div class="hero-cta">
+						<form class="form-cta">
+							<div class="form-cta-box">
+								<img src="img/icons/search-icon.png" alt="" />
+								<input type="text" placeholder="Football, reinforcement" />
+							</div>
+							<div class="form-cta-box">
+								<img src="img/icons/category-icon.png" alt="" />
+								<input type="text" placeholder="Categories" />
+							</div>
+							<div class="form-cta-box">
+								<img src="img/icons/money-icon.png" alt="" />
+								<input type="text" placeholder="Price" />
+							</div>
+						</form>
+						<button class="form-cta-button">Go</button>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Hero Ends -->
+
+		<!-- Filter Start -->
+		<section class="filter">
+			<div class="container">
+				<ul class="filter-list">
+					<li>
+						<a href="#" class="active">All the sports</a>
+					</li>
+					<li>
+						<a href="#" class="green">Football</a>
+					</li>
+					<li>
+						<a href="#" class="blue">Bodybuilding</a>
+					</li>
+					<li>
+						<a href="#" class="red">Health</a>
+					</li>
+					<li>
+						<a href="#" class="purple">Courses</a>
+					</li>
+					<li>
+						<a href="#" class="orange">Fit</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!-- Filter Ends -->
+
+		<!-- Quick Access Start -->
+		<section class="grid">
+			<div class="container">
+				<h5 class="grid-heading">Programmes</h5>
+				<div class="row">
+					@forelse (categories()->take(4) as $item)
+					<div class="col-lg-3">
+						<div class="grid-box">
+							<img src="{{ asset('uploads/categories') }}/{{ $item->image }}" alt="" />
+							<div class="grid-footer">
+								<i class="{{ ($item->category_name == 'Food Programme') ? 'fas fa-utensils' : 'far fa-clipboard' }}"></i>
+								<p>{{ ucfirst($item->category_name) }}</p>
+								<i class="fas fa-chevron-right"></i>
+							</div>
+						</div>
+					</div>
+					@empty
+						<p>No data found</p>
+					@endforelse
+					
+				</div>
+			</div>
+		</section>
+		<!-- Quick Access Ends -->
+
+		<!-- Coaches Of The Moment Start -->
+		<section class="grid grid--one">
+			<div class="container">
+				<h5 class="grid-heading">OUR COACHES OF THE MOMENT</h5>
+				<div class="row">
+				@forelse (trainers() as $item)
+				<div class="col-lg-3">
+					<div class="grid-box">
+						<img src="{{ $item->profile_photo_url }}" alt="" />
+						<div class="grid-footer">
+							<div class="grid-footer-main">
+								<div class="grid-footer-row">
+									<i class="fas fa-check-circle"></i>
+									<h5>{{ $item->name }}</h5>
+								</div>
+								<span>{{ $item->getCourse->count() }} programs</span>
+							</div>
+							<div class="grid-footer-rating">
+								<span>5/5</span>
+								<i class="fas fa-star"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				@empty
+					<p>No trainers found.</p>
+				@endforelse
+				</div>
+			</div>
+		</section>
+		<!-- Coaches Of The Moment Ends -->
 @endsection
+
+

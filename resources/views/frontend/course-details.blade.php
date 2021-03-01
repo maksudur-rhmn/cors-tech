@@ -4,6 +4,19 @@
 CORS TECH - {{ $course->title }}
 @endsection
 
+@section('custom-js')
+<script>
+	$('#register').on('click', function(){
+
+		$("#myModal").modal();
+	})
+	$('#login').on('click', function(){
+
+		$("#logModal").modal();
+	})
+</script>
+@endsection
+
 @section('content')
 
 <div class="m_container w-container">

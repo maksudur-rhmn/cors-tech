@@ -13,6 +13,7 @@ use App\Models\Facebook;
 use App\Models\CoachInfo;
 use App\Models\MemberArea;
 use Illuminate\Http\Request;
+use Stevebauman\Location\Facades\Location;
 
 class FrontendController extends Controller
 {

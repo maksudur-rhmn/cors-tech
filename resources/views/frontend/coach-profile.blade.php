@@ -524,7 +524,16 @@
             });
           </script>
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-          
+        <script>
+            $('#register').on('click', function(){
+        
+                $("#myModal").modal();
+            })
+            $('#login').on('click', function(){
+        
+                $("#logModal").modal();
+            })
+        </script>
           @yield('custom-js')
           </body>
           </html>
