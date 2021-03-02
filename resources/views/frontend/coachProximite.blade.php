@@ -51,89 +51,13 @@
 		</header>
 		<!-- Hero Ends -->
 
-		<!-- Filter Start -->
-		<section class="filter">
-			<div class="container">
-				<ul class="filter-list">
-					<li>
-						<a href="{{ url('/home') }}" class="active">All the programmes</a>
-					</li>
-					@php
-						$flag = 1;
-					@endphp
-					@forelse (categories() as $item)
-					@foreach($item->getSubCategory->take(5) as $value)
-					<li>
-						<a href="{{ url('/search?sub=') }}{{ $value->id }}" class="
-							@if($flag == 1)
-							green
-							@elseif($flag == 2)
-							blue
-							@elseif($flag == 3)
-							red
-							@elseif($flag == 4)
-							purple
-							@elseif($flag == 5)
-							orange
-							@endif
-						">{{ $value->name }}</a>
-					</li>
-					@php
-						$flag++;
-					@endphp
-					@endforeach
-					@empty
-						<p>nothing found.</p>
-					@endforelse
-				</ul>
-			</div>
-		</section>
-		<!-- Filter Ends -->
-
-		<!-- Quick Access Start -->
-		<section class="grid">
-			<div class="container">
-				<h5 class="grid-heading">Programmes</h5>
-				<div class="row">
-					@forelse (categories()->take(4) as $item)
-					<div class="col-lg-3">
-						<a href="{{ url('/search?field=') }}{{ $item->id }}">
-						<div class="grid-box">
-							<img src="{{ asset('uploads/categories') }}/{{ $item->image }}" alt="" />
-							<div class="grid-footer">
-								<i class="{{ ($item->category_name == 'Food Programme') ? 'fas fa-utensils' : 'far fa-clipboard' }}"></i>
-								<p>{{ ucfirst($item->category_name) }}</p>
-								<i class="fas fa-chevron-right"></i>
-							</div>
-						</div>
-					</a>
-					</div>
-					@empty
-						<p>No data found</p>
-					@endforelse
-					<div class="col-lg-3">
-						<a href="{{ route('front.proximite') }}">
-							<div class="grid-box">
-								<img src="{{ asset('cors_assets/img/grid-img-3.jpg') }}" alt="">
-								<div class="grid-footer">
-									<i class="far fa-compass"></i>
-									<p>Coach in proximity</p>
-									<i class="fas fa-chevron-right"></i>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Quick Access Ends -->
 
 		<!-- Coaches Of The Moment Start -->
 		<section class="grid grid--one">
 			<div class="container">
-				<h5 class="grid-heading">OUR COACHES OF THE MOMENT</h5>
+				<h5 class="grid-heading">OUR COACHES IN YOUR PROXIMITY</h5>
 				<div class="row">
-				@forelse (trainers() as $item)
+				@forelse ($trainers as $item)
 				<div class="col-lg-3">
 				<a href="{{ route('front.coachProfile', $item->id) }}">
 					<div class="grid-box">

@@ -23,6 +23,13 @@ class FrontendController extends Controller
        return view('frontend.indexone');
    }
 
+   public function coachProximite()
+   {
+     $position = Location::get(request()->ip());
+     $trainers = User::where('role', 'coach')->where('ip', $position->countryName)->get();
+     return view('frontend.coachProximite',compact('trainers'));
+   }
+
    public function indexlogin()
    {
      return view('frontend.indexlogin');

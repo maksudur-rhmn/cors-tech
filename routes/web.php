@@ -55,6 +55,7 @@ Route::middleware(['auth:sanctum', 'verified', 'checkRole'])->get('/revoke/{id}'
 
 // FrontendController
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
+Route::get('/proximite-coach', [FrontendController::class, 'coachProximite'])->name('front.proximite');
 Route::get('/home', [FrontendController::class, 'indexlogin'])->name('front.indexlogin');
 Route::get('/courses', [FrontendController::class, 'courses'])->name('front.courses');
 Route::middleware(['auth:sanctum', 'verified'])->get('/owned/courses', [FrontendController::class, 'ownedCourses'])->name('front.ownedCourses');
