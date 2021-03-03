@@ -58,6 +58,7 @@ return array(
     'App\\Models\\GeneralSettings' => $baseDir . '/app/Models/GeneralSettings.php',
     'App\\Models\\Lesson' => $baseDir . '/app/Models/Lesson.php',
     'App\\Models\\MemberArea' => $baseDir . '/app/Models/MemberArea.php',
+    'App\\Models\\Review' => $baseDir . '/app/Models/Review.php',
     'App\\Models\\Sale' => $baseDir . '/app/Models/Sale.php',
     'App\\Models\\SubCategory' => $baseDir . '/app/Models/SubCategory.php',
     'App\\Models\\Subscription' => $baseDir . '/app/Models/Subscription.php',

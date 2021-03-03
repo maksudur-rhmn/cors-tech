@@ -29,10 +29,10 @@
               <li><a href="#">Language</a></li>
           </ul>
           <ul class="footer-language">
-              <li><a href="#googtrans(en|es)" class="" data-lang="es">ESPANOL</a></li>
-              <li><a href="#googtrans(en|fr)" class="lang-fr lang-select" data-lang="fr">FRENCH</a></li>
-              <li><a href="#googtrans(en|en)" class="lang-en lang-select" data-lang="en">ENGLISH</a></li>
-            <li><a href="#googtrans(en|de)" class="" data-lang="de">GERMAN</a></li>
+              <li><a href="#googtrans(en|es)" class="" data-lang="es">ES</a></li>
+              <li><a href="#googtrans(en|fr)" class="lang-fr lang-select" data-lang="fr">FR</a></li>
+              <li><a href="#googtrans(en|en)" class="lang-en lang-select" data-lang="en">ENG</a></li>
+            <li><a href="#googtrans(en|de)" class="" data-lang="de">GER</a></li>
             <li><a href="#googtrans(en|en)" class="lang-es lang-select" data-lang="en"></a></li>
           </ul>
       </div>
@@ -54,7 +54,7 @@ aria-hidden="true"
         <div class="modal-header">
             <div class="ml-auto">
                 <h1 class="color-main">Registration particular</h1>
-                <h4 class="color-main font-weight-bold">Already have an account ? Log in</h4>
+                <h4 class="color-main font-weight-bold">Already have an account ? <a href="{{ url('/login') }}">Log in</a>  </h4>
             </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -136,7 +136,7 @@ aria-hidden="true"
 					<div class="modal-header">
 						<div class="ml-auto">
 							<h1 class="color-main">Personal space</h1>
-							<h4 class="color-main font-weight-bold">No account yet? Sign up</h4>
+							<h4 class="color-main font-weight-bold">No account yet? <a href="{{ url('/register') }}">Sign up</a> </h4>
 						</div>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>

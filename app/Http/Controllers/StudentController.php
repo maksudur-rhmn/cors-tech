@@ -98,4 +98,5 @@ class StudentController extends Controller
             'sales' => Sale::where('user_id', Auth::id())->get(),
         ]);
     }
+
 }

@@ -717,6 +717,7 @@ class ComposerStaticInit7c908dd7df5393cc9565ac22d944b587
         'App\\Models\\GeneralSettings' => __DIR__ . '/../..' . '/app/Models/GeneralSettings.php',
         'App\\Models\\Lesson' => __DIR__ . '/../..' . '/app/Models/Lesson.php',
         'App\\Models\\MemberArea' => __DIR__ . '/../..' . '/app/Models/MemberArea.php',
+        'App\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
         'App\\Models\\Sale' => __DIR__ . '/../..' . '/app/Models/Sale.php',
         'App\\Models\\SubCategory' => __DIR__ . '/../..' . '/app/Models/SubCategory.php',
         'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',

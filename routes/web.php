@@ -24,6 +24,7 @@ use App\Http\Controllers\CoachInfoController;
 use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\CreateSubscriptionController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,10 @@ Route::get('/course/{id}/delete', [CourseController::class, 'delete'])->name('co
 Route::post('/get/sub/category', [CourseController::class, 'getSubCategory']);
 Route::resource('course', CourseController::class);
 // CourseController ENDS
+
+//ReviewController 
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::post('/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
 
 // LessonController
 Route::get('/lesson/{id}/list', [LessonController::class, 'list'])->name('lesson.list');

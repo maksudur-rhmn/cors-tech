@@ -99,7 +99,18 @@
 					@empty
 						<p>No data found</p>
 					@endforelse
-					
+					<div class="col-lg-3">
+						<a href="{{ route('front.proximite') }}">
+							<div class="grid-box">
+								<img src="{{ asset('cors_assets/img/grid-img-3.jpg') }}" alt="">
+								<div class="grid-footer">
+									<i class="far fa-compass"></i>
+									<p>Coach in proximity</p>
+									<i class="fas fa-chevron-right"></i>
+								</div>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>

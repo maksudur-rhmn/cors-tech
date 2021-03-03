@@ -91,6 +91,7 @@
 								<ul class="side-list">
 									<li><a href="{{ url('/student') }}" class="@yield('home-active')">Activity</a></li>
 									<li><a href="{{ url('/foo') }}" class="@yield('cors-active')">My cors</a></li>
+									<li><a href="{{ route('reviews.index') }}" class="@yield('review-active')">Reviews/Ratings</a></li>
 									<li><a href="{{ route('payment.history') }}" class="@yield('history-active')">Payment Records</a></li>
 									<li><a href="{{ url('/user/profile') }}">Settings</a></li>
 								</ul>
