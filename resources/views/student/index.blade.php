@@ -87,12 +87,12 @@
             <div class="sellers">
                 <div class="sellers-header">
                     <h3 class="heading-sub heading-sub--white">Your Trainers</h3>
-                    <a href="#">See All</a>
+                    <a href="{{ url('/') }}">See All</a>
                 </div>
                 <div class="sellers-row">
                     @forelse($sales->take(3) as $value)
                     <div class="seller">
-                        <img src="{{ $value->getCourse->getUser->profile_photo_url }}" alt="cover" />
+                        <a href="{{ route('front.coachProfile', $value->getCourse->getUser->id) }}"><img src="{{ $value->getCourse->getUser->profile_photo_url }}" alt="cover" /></a>
                         <h3>{{ ucfirst($value->getCourse->getUser->name) }}</h3>
                         <span>Course Fee</span>
                         <div class="seller-footer">

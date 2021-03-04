@@ -1,6 +1,6 @@
 @extends('layouts.student-dashboard')
 
-@section('home-active')
+@section('review-active')
     active
 @endsection
 

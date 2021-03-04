@@ -87,3 +87,19 @@ function setting()
 {
   return \App\Models\GeneralSettings::first();
 }
+
+function average_stars($course_id)
+{
+  $average = App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->sum('stars')/App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->count();
+  return $average;
+}
+
+function star_count($course_id, $stars)
+{
+ return App\Models\Review::where('course_id', $course_id)->where('stars', $stars)->count();
+}
+
+function review($course_id)
+{
+  return App\Models\Review::where('course_id', $course_id)->get();
+}

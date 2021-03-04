@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Artisan;
+use Session;
+use Carbon\Carbon;
 use App\Models\Sale;
 use App\Models\User;
 use App\Models\Course;
@@ -12,6 +14,7 @@ use App\Models\Category;
 use App\Models\Facebook;
 use App\Models\CoachInfo;
 use App\Models\MemberArea;
+use App\Models\ProfileViews;
 use Illuminate\Http\Request;
 use Stevebauman\Location\Facades\Location;
 
@@ -161,7 +164,19 @@ class FrontendController extends Controller
    {
      $data = CoachInfo::where('user_id', $id)->first();
 
-     $coach = User::findOrFail($id);
+     $coach = User::findOrFail($id); 
+
+     if(ProfileViews::where('user_id', $id)->where('created_at', Carbon::today())->exists())
+     {
+      ProfileViews::where('user_id', $id)->increment('views');
+     }
+     else
+     {
+       ProfileViews::create([
+        'user_id' => $id, 
+        'views'   => 1,
+       ]);
+     }
 
      return view('frontend.coach-profile', compact('data', 'coach'));
    }

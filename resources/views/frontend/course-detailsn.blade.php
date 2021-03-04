@@ -317,12 +317,12 @@
 								<h3 class="heading-sub">Notes and advice</h3>
 								<div class="rating-row">
 									<div class="rating-num">
-										<h1>5.5</h1>
+										<h1>{{ average_stars($course->id) }}</h1>
 										<p>Current note</p>
 									</div>
 									<div class="rating-percentage">
 										<div class="percentage-row">
-											<span>10</span>
+											<span>{{ star_count($course->id, 5) }}</span>
 											<div class="rating-bar">
 												<div class="rating-overlay rating-overlay--100"></div>
 											</div>
@@ -330,12 +330,12 @@
 												<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
-												<i class="far fa-star"></i>
-												<i class="far fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
 											</div>
 										</div>
 										<div class="percentage-row">
-											<span>7</span>
+											<span>{{ star_count($course->id, 4) }}</span>
 											<div class="rating-bar">
 												<div class="rating-overlay rating-overlay--75"></div>
 											</div>
@@ -343,11 +343,11 @@
 												<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
-												<i class="far fa-star"></i>
+												<i class="fas fa-star"></i>
 											</div>
 										</div>
 										<div class="percentage-row">
-											<span>4</span>
+											<span>{{ star_count($course->id, 3) }}</span>
 											<div class="rating-bar">
 												<div class="rating-overlay rating-overlay--50"></div>
 											</div>
@@ -358,7 +358,7 @@
 											</div>
 										</div>
 										<div class="percentage-row">
-											<span>1</span>
+											<span>{{ star_count($course->id, 2) }}</span>
 											<div class="rating-bar">
 												<div class="rating-overlay rating-overlay--25"></div>
 											</div>
@@ -368,7 +368,7 @@
 											</div>
 										</div>
 										<div class="percentage-row">
-											<span>2</span>
+											<span>{{ star_count($course->id, 1) }}</span>
 											<div class="rating-bar">
 												<div class="rating overlay rating-overlay--0"></div>
 											</div>
@@ -382,34 +382,58 @@
 
 							<!-- comment -->
 							<div class="primary-comment">
+								@forelse (review($course->id) as $item)
 								<div class="comment">
 									<div class="comment-avatar">
-										<img src="{{ asset('cors_assets/img/comment-profile.jpg') }}" alt="cover" />
+										<img src="{{ $item->getUser->profile_photo_url }}" alt="cover" />
 									</div>
 									<div class="comment-desc">
 										<div class="comment-header">
-											<h3>Anna Clark</h3>
-											<a href="#">Report</a>
+											<h3>{{ ucfirst($item->getUser->name) }}</h3>
 										</div>
 										<div class="comment-rating">
+											@if($item->stars == 1)
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											@elseif($item->stars == 2)
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											<i class="far fa-star"></i>
+											@elseif($item->stars == 3)
 											<i class="fas fa-star"></i>
 											<i class="fas fa-star"></i>
 											<i class="fas fa-star"></i>
 											<i class="far fa-star"></i>
 											<i class="far fa-star"></i>
+											@elseif($item->stars == 4)
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											@elseif($item->stars == 5)
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											@endif
 										</div>
 										<div class="comment-explain">
 											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur
-												finibus eros, in luctus urna tempus at. Sed placerat ex non purus auctor
-												faucibus. Vestibulum mollis pharetra est sed facilisis. Fusce ultrices nibh
-												lacinia massa dictum, sit amet aliquet tellus volutpat. Nam dictum enim ut
-												pharetra eleifend. Phasellus eget nisi tincidunt, mattis odio at, mollis
-												turpis.
+												{{ $item->reviews }}
 											</p>
 										</div>
 									</div>
 								</div>
+								@empty
+									<p>No reviews yet.</p>
+								@endforelse
 							</div>
 
 							<!-- bottom grid -->

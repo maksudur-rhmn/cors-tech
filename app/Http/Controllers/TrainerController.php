@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Sale;
+use App\Models\User;
 use App\Models\Course;
-use App\Models\Category;
 use App\Models\Lesson;
+use App\Models\Category;
+use App\Models\CoachInfo;
+use App\Models\ProfileViews;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller
@@ -22,7 +25,32 @@ class TrainerController extends Controller
     {
         $sales = Sale::where('trainer_id', Auth::id())->get();
         $myProgrammes = Course::where('user_id', Auth::id())->get();
-        return view('trainer.index', compact('sales', 'myProgrammes'));
+
+
+        $record = Sale::where('trainer_id', Auth::id())->where('status', 'paid')->get();
+      
+        $data = [];
+    
+        foreach($record as $row) {
+           $data['label'][] = $row->created_at->format('d M Y');
+           $data['data'][] = (int) $row->price;
+         }
+    
+       $data['chart_data'] = json_encode($data);
+
+       $newCoach = ProfileViews::where('user_id', Auth::id())->get();
+        
+       $coaches = [];
+
+       foreach($newCoach->take(5) as $new)
+       {
+           $coaches['label'][] = $new->created_at->format('d M Y');
+           $coaches['data'][]  = (int) $new->views;
+       }
+
+       $coaches['chart_data'] = json_encode($coaches);
+
+        return view('trainer.index', compact('sales', 'myProgrammes', 'data', 'coaches'));
     }
 
     public function create()
