@@ -85,6 +85,7 @@ Route::resource('subcategory', SubCategoryController::class);
 //SubCategoryController ENDS
 
 // CourseController
+Route::get('/course/decision/{id}', [CourseController::class, 'decision'])->name('course.decision');
 Route::get('/course/{id}/delete', [CourseController::class, 'delete'])->name('course.delete');
 Route::post('/get/sub/category', [CourseController::class, 'getSubCategory']);
 Route::resource('course', CourseController::class);

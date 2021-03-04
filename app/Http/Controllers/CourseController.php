@@ -100,7 +100,7 @@ class CourseController extends Controller
             'meta_keywords'      => $request->meta_keywords,
             'created_at'         => Carbon::now(),
             'user_id'            => Auth::id(),
-            'feature'           => 'yes',
+            'feature'           => 'no',
          ]);
 
          $uploaded_file = $request->file('cover_image');
@@ -226,6 +226,22 @@ class CourseController extends Controller
         //
     }
 
+    public function decision($id)
+    {
+        $course = Course::findOrFail($id);
+        if($course->feature == 'no')
+        {
+            $course->feature = 'yes';
+            $course->save();
+            return back()->withSuccess('Course Approved and is now ready for sale');
+        }
+        elseif($course->feature == 'yes')
+        {
+            $course->feature = 'no';
+            $course->save();
+            return back()->withSuccess('Course Declined and is now removed from sale page');
+        }
+    }
     public function delete($id)
     {
         Lesson::where('course_id', $id)->delete();

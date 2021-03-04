@@ -69,7 +69,7 @@ Courses
                                         <td>{{ $course->getCategory->category_name }}</td>
                                         <td>
                                             @if ($course->status != 'free')
-                                               EUR {{ $course->price }}
+                                               $ {{ $course->price }}
                                             @else 
                                               Free
                                             @endif
@@ -78,7 +78,13 @@ Courses
                                                 <a href="{{ route('lesson.list', $course->id) }}" class="btn btn-primary">Lesson list</a>
                                             </td>
                                         <td>{{ ucfirst($course->getUser->name) }}</td>
-                                        <td>{{ ucfirst($course->status) }}</td>
+                                        <td>
+                                            @if($course->feature == 'no')
+                                            Pending <a href="{{ route('course.decision', $course->id) }}" class="btn btn-sm btn-success">Approve Cors</a>
+                                            @elseif($course->feature == 'yes')
+                                            Approved <a href="{{ route('course.decision', $course->id) }}" class="btn btn-sm btn-danger">Decline Cors</a>
+                                            @endif
+                                        </td>
                                         <td>
                                          <a href="{{ route('course.show', $course->id) }}" class="mr-2"><i class="fas fa-eye text-primary"></i></a>
                                          <a href="{{ route('course.edit', $course->id) }}" class="mr-2"><i class="fas fa-edit text-warning"></i></a>

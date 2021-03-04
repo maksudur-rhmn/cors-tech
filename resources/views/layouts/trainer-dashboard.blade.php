@@ -95,7 +95,7 @@
 									<li><a href="{{ route('trainer.create') }}" class="@yield('trainer-create')">Create course</a></li>
 									@endif
 									<li><a href="{{ route('trainerlesson.create') }}" class="@yield('lesson-create')">Add Lesson</a></li>
-									<li><a href="{{ route('trainerdelete.programme') }}" class="@yield('programme-delete')">Delete Programme</a></li>
+									<li><a href="{{ route('trainerdelete.programme') }}" class="@yield('programme-delete')">Mes Programme</a></li>
 									<li>
 										<a href="{{ url('/') }}">All coaches <span>{{ trainers()->count() }}</span></a>
 									</li>

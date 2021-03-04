@@ -61,7 +61,7 @@ function categories()
 
 function courses()
 {
-  return \App\Models\Course::latest()->get();
+  return \App\Models\Course::where('feature', 'yes')->orderBy('id', 'desc')->get();
 }
 
 function failedPayments($id)
@@ -90,8 +90,16 @@ function setting()
 
 function average_stars($course_id)
 {
-  $average = App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->sum('stars')/App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->count();
-  return $average;
+
+  if(App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->count() == 0)
+  {
+    return 0;
+  }
+  else
+  {
+    $average = App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->sum('stars')/App\Models\Review::where('course_id', $course_id)->whereNotNull('stars')->count();
+    return $average;
+  }
 }
 
 function star_count($course_id, $stars)

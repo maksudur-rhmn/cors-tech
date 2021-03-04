@@ -15,17 +15,23 @@
 									<div class="sales-table">
 										<div class="sales-header">
 											<span>Name</span>
-											<span>Prog</span>
 											<span>Lessons</span>
+											<span>Status</span>
 											<span>Delete</span>
 										
 										</div>
 										@forelse ($myProgrammes as $myProgramme)
 										<div class="sales-row">
 											<div>{{ ucfirst($myProgramme->title) }}</div>
-											<div>{{ $myProgramme->getCategory->category_name ?? '' }}</div>
 											<div>
 												<a href="{{ route('trainerlesson.list', $myProgramme->id) }}" class="btn btn-primary">View Lessons ({{ $myProgramme->getLessons->count() }})  </a>
+											</div>
+											<div>
+												@if($myProgramme->feature == 'no')
+												<button class="btn btn-warning">Pending</button>
+												@elseif($myProgramme->feature == 'yes')
+												<button class="btn btn-success">Approved</button>
+												@endif
 											</div>
 											<div class="sales-money">
 												<a href="{{ route('course.delete', $myProgramme->id) }}"><i class="far fa-trash-alt text-danger"></i></a>
