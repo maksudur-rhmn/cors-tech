@@ -147,12 +147,6 @@
                                     <span>Visit website</span>
                                 </a>
                             </li>
-                            <li class="">
-                                <a class="" href="{{ url('/member-area') }}">
-                                    <i class="fas fa-globe"></i>
-                                    <span>Visit Premium page</span>
-                                </a>
-                            </li>
                             <li class="@yield('mm-active1')">
                                 <a class="@yield('active1')" href="{{ route('dashboard') }}">
                                     <i class="fas fa-home"></i>

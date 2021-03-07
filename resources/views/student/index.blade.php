@@ -67,15 +67,15 @@
             <div class="news-chart-box">
                 <h3 class="heading-sub">General Informations</h3>
                 <div class="news-header">
-                    <div class="">
-                        <h3>New Coaches</h3>
-                        <h1 class="color-chart font-weight-bold">{{ trainers()->count() }}</h1>
-                    </div>
-                    <div class="">
-                        <h3>New Clients</h3>
-                        <h1 class="font-weight-bold">{{ students()->count() }}</h1>
-                    </div>
-                </div>
+                  <div class="">
+                      <h3>New Coaches</h3>
+                      <h1 class="color-chart font-weight-bold">{{ trainers()->count() }}</h1>
+                  </div>
+                  <div class="">
+                      <h3>Corse Bought</h3>
+                      <h1 class="font-weight-bold">{{ $sales->count() }}</h1>
+                  </div>
+              </div>
                 <div class="chart-container">
                     <div class="pie-chart-container">
                       <canvas id="pie-charts"></canvas>
@@ -120,26 +120,26 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <!-- Total customers -->
-            <div class="card-white card-white--1">
-                <div class="card-white-row">
-                    <h3 class="heading-sub">TOTAL CUSTOMERS</h3>
-                    <h1>{{ students()->count() }}</h1>
-                </div>
+          <!-- Total customers -->
+          <div class="card-white card-white--1">
+              <div class="card-white-row">
+                  <h3 class="heading-sub">TOTAL SPENT</h3>
+                  <h1>{{ $sales->sum('price') }}$</h1>
+              </div>
 
-                <div class="card-white-row">
-                    <h3 class="heading-sub">TOTAL VERIFIED COACHS</h3>
-                    <h1>{{ trainers()->count() }}</h1>
-                </div>
+              <div class="card-white-row">
+                  <h3 class="heading-sub">TOTAL CORS BOUGHT</h3>
+                  <h1>{{ $sales->count() }}</h1>
+              </div>
 
-                <div class="card-white-row">
-                    <h3 class="heading-sub">FAILED PAIEMENTS</h3>
-                    <div class="warning-row">
-                        <h1 class="dark-red-text">{{ failedPayments(Auth::id())->count() }}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
+              <div class="card-white-row">
+                  <h3 class="heading-sub">FAILED PAIEMENTS</h3>
+                  <div class="warning-row">
+                      <h1 class="dark-red-text">{{ failedPayments(Auth::id())->count() }}</h1>
+                  </div>
+              </div>
+          </div>
+      </div>
         <div class="col-lg-6">
             <!-- Sales chart -->
             <div class="sales-chart-box">

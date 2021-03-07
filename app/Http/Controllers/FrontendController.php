@@ -23,6 +23,7 @@ class FrontendController extends Controller
 
    public function index()
    {
+       Artisan::call('cashier:run');
        return view('frontend.indexone');
    }
 

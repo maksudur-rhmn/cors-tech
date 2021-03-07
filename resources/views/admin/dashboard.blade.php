@@ -273,7 +273,7 @@ Dashboard
                                                        @endif
                                                     </td>
                                                     <td>
-                                                        N/A
+                                                        ${{ $user->getSale->sum('price') }}
                                                     </td>
                                                     <td>
                                                       @if ($user->role == 'coach')
