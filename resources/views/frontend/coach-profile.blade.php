@@ -125,11 +125,11 @@
 						</div>
 					</div>
 
-					{{-- <div class="profile-button-box">
-						<a href="#" class="button button--outline-white-empty">
+					<div class="profile-button-box">
+						<a href="https://messenger.dgtaltech.com" class="button button--outline-white-empty">
 							<i class="far fa-paper-plane mr-2"></i> Envoyer un message
 						</a>
-					</div> --}}
+					</div>
 				</div>
 			</main>
 			<!-- main ends -->
@@ -373,19 +373,31 @@
                               <div class="col-lg-6">
                                   <div class="modal-input">
                                       <label for="">Your Pseudo</label>
-                                      <input type="text" name="name" :value="old('name')" required autofocus autocomplete="name" class="text-field w-input" id="name" />
+                                      <input type="text" name="register_name" :value="old('register_name')" required autofocus autocomplete="name" class="text-field w-input" id="name" />
+                                      @error('register_name')
+                                      <h5 class="text-danger">{{ $message }}</h5>
+                                      @enderror
                                       <label for="">Password</label>
-                                      <input type="password" name="password" required autocomplete="new-password" class="text-field w-input" />
+                                      <input type="password" name="register_password" required autocomplete="new-password" class="text-field w-input" />
+                                      @error('register_password')
+                                      <h5 class="text-danger">{{ $message }}</h5>
+                                      @enderror
                                   </div>
                               </div>
                               <div class="col-lg-6">
                                   <div class="modal-input">
                                       <label for="">Your addresse email</label>
-                                      <input type="email" name="email" :value="old('email')" required  id="email" class="text-field w-input" />
+                                      <input type="email" name="register_email" :value="old('email')" required  id="email" class="text-field w-input" />
+                                      @error('register_email')
+                                      <h5 class="text-danger">{{ $message }}</h5>
+                                      @enderror
                                   </div>
                                   <div class="modal-input">
                                       <label for="">Confirm Password</label>
-                                      <input type="password" name="password_confirmation" required autocomplete="new-password" id="password_confirm" class="text-field w-input" />
+                                      <input type="password" name="register_password_confirmation" required autocomplete="new-password" id="password_confirm" class="text-field w-input" />
+                                      @error('register_password_confirmation')
+                                      <h5 class="text-danger">{{ $message }}</h5>
+                                      @enderror
                                   </div>
                               </div>
                               <div class="col-lg-12">
@@ -395,6 +407,9 @@
                                           <option value="student">Student</option>
                                           <option value="coach">Trainer</option>
                                       </select>
+                                      @error('role')
+                                      <h5 class="text-danger">{{ $message }}</h5>
+                                      @enderror
                                   </div>
                               </div>
                           </div>
@@ -403,6 +418,9 @@
                               <label for=""
                                   >I accept the <a href="#">CGU</a> et <a href="#">CGV</a> of site Cors Tech</label
                               >
+                              @error('agree')
+                              <h5 class="text-danger">{{ $message }}</h5>
+                              @enderror
                           </div>
                           <button type="submit" class="button button--outline-main-empty">Register</button>
                       </form>
@@ -455,9 +473,15 @@
                                       <div class="modal-input">
                                           <label for="">Your Email Address</label>
                                           <input type="email" name="email" :value="old('email')" required autofocus class="text-field w-input" autofocus="true" maxlength="256"  id="email" required="" />
+                                          @error('email')
+                                              <h5 class="text-danger">{{ $message }}</h5>
+                                          @enderror
                                       </div>
                                       <div class="modal-input"><label for="">Password</label>
                                           <input type="password" name="password" required autocomplete="current-password" class="text-field w-input" maxlength="256"  id="password" />
+                                          @error('email')
+                                              <h5 class="text-danger">{{ $message }}</h5>
+                                          @enderror
                                       </div>
                                       @if (Route::has('password.request'))
                                           <a href="{{ route('password.request') }}" class="footer-link forgot_password"><h4 class="color-main font-weight-bold mb-3">Forgot Password? </h4></a>
@@ -533,6 +557,14 @@
         
                 $("#logModal").modal();
             })
+
+            @if($errors->has('email') || $errors->has('password'))
+            $("#logModal").modal();
+            @endif
+
+            @if($errors->has('register_name') || $errors->has('register_email') || $errors->has('register_password') || $errors->has('register_password_confirmation') || $errors->has('role') || $errors->has('agree'))
+            $("#myModal").modal();
+            @endif
         </script>
           @yield('custom-js')
           </body>

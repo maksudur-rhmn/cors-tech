@@ -52,6 +52,7 @@ return array(
     'App\\Models\\About' => $baseDir . '/app/Models/About.php',
     'App\\Models\\BecomeTrainer' => $baseDir . '/app/Models/BecomeTrainer.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\Check' => $baseDir . '/app/Models/Check.php',
     'App\\Models\\CoachInfo' => $baseDir . '/app/Models/CoachInfo.php',
     'App\\Models\\Course' => $baseDir . '/app/Models/Course.php',
     'App\\Models\\Facebook' => $baseDir . '/app/Models/Facebook.php',

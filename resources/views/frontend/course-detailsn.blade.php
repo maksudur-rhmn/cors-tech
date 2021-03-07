@@ -20,6 +20,14 @@
 
 		$("#logModal").modal();
 	})
+
+	        @if($errors->has('email') || $errors->has('password'))
+            $("#logModal").modal();
+            @endif
+
+            @if($errors->has('register_name') || $errors->has('register_email') || $errors->has('register_password') || $errors->has('register_password_confirmation') || $errors->has('role') || $errors->has('agree'))
+            $("#myModal").modal();
+            @endif
 </script>
 @endsection
 

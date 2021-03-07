@@ -7,24 +7,25 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MollieController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CoachInfoController;
 use App\Http\Controllers\MemberAreaController;
 use App\Http\Controllers\CreateAdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BecomeTrainerController;
-use App\Http\Controllers\CoachInfoController;
 use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\CreateSubscriptionController;
-use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -172,3 +173,6 @@ Route::resource('faqs', FaqController::class);
 // GeneralSettings 
 Route::get('/general-settings', [GeneralSettingsController::class, 'index'])->name('general.index');
 Route::post('/general-store', [GeneralSettingsController::class, 'store'])->name('general.store');
+
+
+Route::get('/check-login', [CheckController::class, 'index']);

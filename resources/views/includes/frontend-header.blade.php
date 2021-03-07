@@ -22,6 +22,17 @@
 		<link rel="shortcut icon" href="{{ asset('cors_assets/img/icons/logo-black.png') }}" />
 		<!-- Title -->
 		<title>@yield('title')</title>
+
+		<style>
+			.goog-te-banner-frame.skiptranslate 
+			{
+			      display: none !important;
+			} 
+			body 
+			{
+				top: 0px !important; 
+			}
+		</style>
 	</head>
 	<body>
 		<!-- Navbar Start -->
