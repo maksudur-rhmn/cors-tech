@@ -300,19 +300,23 @@ aria-hidden="true"
                 <button type="submit" class="button button--outline-main-empty">Register</button>
             </form>
             <div class="modal-social">
-                {{-- <div class="modal-social-box">
-                    <button class="modal-social--button modal-social--facebook">
-                        <i class="fab fa-facebook-f"></i>
-                        Login via Facebook
-                    </button>
-                </div>
-                <div class="modal-social-box">
-                    <button class="modal-social--button modal-social--google">
-                        <i class="fab fa-google"></i>
-                        Login by Google
-                    </button>
-                </div> --}}
-            </div>
+				<div class="modal-social-box">
+				   <a href="{{ url('/auth/facebook') }}">
+					   <button style="outline: none;" class="modal-social--button modal-social--facebook">
+						   <i class="fab fa-facebook-f"></i>
+						   Register via Facebook
+					   </button>
+				   </a>
+			   </div>
+			   <div class="modal-social-box">
+				   <a href="{{ url('auth/google') }}">
+				   <button style="outline:none;" class="modal-social--button modal-social--google">
+					   <i class="fab fa-google"></i>
+					   Register by Google
+				   </button>
+			   </a>
+			   </div> 
+		   </div>
         </div>
     </div>
 </div>
@@ -353,20 +357,24 @@ aria-hidden="true"
                             @endif
                           <button type="submit" class="button button--outline-main-empty">Login</button>
 						</form>
-						{{-- <div class="modal-social">
+						<div class="modal-social">
 							<div class="modal-social-box">
-								<button class="modal-social--button modal-social--facebook">
-									<i class="fab fa-facebook-f"></i>
-									Login via Facebook
-								</button>
-							</div>
-							<div class="modal-social-box">
-								<button class="modal-social--button modal-social--google">
-									<i class="fab fa-google"></i>
-									Login by Google
-								</button>
-							</div>
-						</div> --}}
+							   <a href="{{ url('/auth/facebook') }}">
+								   <button style="outline: none;" class="modal-social--button modal-social--facebook">
+									   <i class="fab fa-facebook-f"></i>
+									   Login via Facebook
+								   </button>
+							   </a>
+						   </div>
+						   <div class="modal-social-box">
+							   <a href="{{ url('auth/google') }}">
+							   <button style="outline:none;" class="modal-social--button modal-social--google">
+								   <i class="fab fa-google"></i>
+								   Login by Google
+							   </button>
+						   </a>
+						   </div> 
+					   </div>
 					</div>
 				</div>
 			</div>

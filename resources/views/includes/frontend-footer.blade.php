@@ -122,7 +122,7 @@
                              <a href="{{ url('/auth/facebook') }}">
                                  <button style="outline: none;" class="modal-social--button modal-social--facebook">
                                      <i class="fab fa-facebook-f"></i>
-                                     Login via Facebook
+                                     Register via Facebook
                                  </button>
                              </a>
                          </div>
@@ -130,7 +130,7 @@
                              <a href="{{ url('auth/google') }}">
                              <button style="outline:none;" class="modal-social--button modal-social--google">
                                  <i class="fab fa-google"></i>
-                                 Login by Google
+                                 Register by Google
                              </button>
                          </a>
                          </div> 

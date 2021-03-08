@@ -34,7 +34,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="navbar-box">
-                        <img src="{{ asset('cors_assets/img/icons/logo-white.png') }}" alt="" />
+                        <img src="{{ asset('cors_assets/img/icons/logo-black.png') }}" alt="" />
                     </div>
                     <span>Cors Tech</span>
                 </a>
@@ -320,7 +320,7 @@
                               <a href="{{ url('/auth/facebook') }}">
                                   <button style="outline: none;" class="modal-social--button modal-social--facebook">
                                       <i class="fab fa-facebook-f"></i>
-                                      Login via Facebook
+                                      Register via Facebook
                                   </button>
                               </a>
                           </div>
@@ -328,7 +328,7 @@
                               <a href="{{ url('auth/google') }}">
                               <button style="outline:none;" class="modal-social--button modal-social--google">
                                   <i class="fab fa-google"></i>
-                                  Login by Google
+                                  Register by Google
                               </button>
                           </a>
                           </div> 
