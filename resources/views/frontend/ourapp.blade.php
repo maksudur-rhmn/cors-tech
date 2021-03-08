@@ -120,7 +120,7 @@
 								varius, mauris vel viverra elementum, lectus nibh ullamcorper augue, vitae
 								sollicitudin lacus arcu at quam.
 							</p>
-							<a href="#" class="button button--outline-white-empty">Registration </a>
+							<a href="{{ route('register') }}" class="button button--outline-white-empty">Registration </a>
 						</div>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 								varius, mauris vel viverra elementum, lectus nibh ullamcorper augue, vitae
 								sollicitudin lacus arcu at quam.
 							</p>
-							<a href="#" class="button button--outline-white-empty">Discover</a>
+							<a href="{{ url('/home') }}" class="button button--outline-white-empty">Discover</a>
 						</div>
 					</div>
 					<div class="col-lg-6">
