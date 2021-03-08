@@ -8,7 +8,7 @@
     
 <div class="col-lg-9">
     <!-- black main -->
-    <main class="black-main bg-dark-light">
+    <main class="black-main">
         <div class="black-main-header">
             <h3 class="heading-sub heading-sub--white">Pending validation</h3>
         </div>
@@ -23,7 +23,7 @@
                     </div>
                     <form action="{{ route('reviews.store') }}" method="POST">
                         @csrf
-                    <div class="main-list-table-row">
+                    <div class="main-list-table-row" style="background-color: #fff !important">
                         <img src="{{ asset('uploads/course') }}/{{ $sale->getCourse->cover_image }}" alt="cover" />
                         <div class="main-list-content">
                             <span>{{ $sale->getCourse->title }}</span>

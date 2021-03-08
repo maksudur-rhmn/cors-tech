@@ -131,6 +131,18 @@
 							</div>
 						</a>
 					</div>
+					<div class="col-lg-3">
+					<a href="{{ route('front.proximiteuser') }}">
+						<div class="grid-box">
+							<img src="{{ asset('cors_assets/img/grid-img-4.jpg') }}" alt="">
+							<div class="grid-footer">
+								<i class="fas fa-user-clock"></i>
+								<p>Teammate in proximite</p>
+								<i class="fas fa-chevron-right"></i>
+							</div>
+						</div>
+					</a>
+					</div>
 				</div>
 			</div>
 		</section>

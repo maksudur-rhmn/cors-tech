@@ -33,6 +33,12 @@ class FrontendController extends Controller
      $trainers = User::where('role', 'coach')->where('ip', $position->countryName)->get();
      return view('frontend.coachProximite',compact('trainers'));
    }
+   public function userProximite()
+   {
+     $position = Location::get(request()->ip());
+     $trainers = User::where('role', 'student')->where('ip', $position->countryName)->get();
+     return view('frontend.userProximite',compact('trainers'));
+   }
 
    public function indexlogin()
    {
@@ -180,6 +186,26 @@ class FrontendController extends Controller
      }
 
      return view('frontend.coach-profile', compact('data', 'coach'));
+   }
+   public function userProfile($id)
+   {
+     $data = CoachInfo::where('user_id', $id)->first();
+
+     $coach = User::findOrFail($id); 
+
+    //  if(ProfileViews::where('user_id', $id)->where('created_at', Carbon::today())->exists())
+    //  {
+    //   ProfileViews::where('user_id', $id)->increment('views');
+    //  }
+    //  else
+    //  {
+    //    ProfileViews::create([
+    //     'user_id' => $id, 
+    //     'views'   => 1,
+    //    ]);
+    //  }
+
+     return view('frontend.user-profile', compact('data', 'coach'));
    }
 
 

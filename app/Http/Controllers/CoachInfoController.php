@@ -14,14 +14,22 @@ class CoachInfoController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
-        $this->middleware('checkTrainer');
     }
 
     public function index()
     {
-        return view('trainer.profile',[
-            'data' => Coachinfo::where('user_id', Auth::id())->first(),
-        ]);
+        if(Auth::user()->role == 'coach')
+        {
+            return view('trainer.profile',[
+                'data' => Coachinfo::where('user_id', Auth::id())->first(),
+            ]);
+        }
+        else 
+        {
+            return view('student.profile',[
+                'data' => Coachinfo::where('user_id', Auth::id())->first(),
+            ]);
+        }
     }
 
     public function store(Request $request)

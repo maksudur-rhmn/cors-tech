@@ -58,6 +58,7 @@ Route::middleware(['auth:sanctum', 'verified', 'checkRole'])->get('/revoke/{id}'
 // FrontendController
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
 Route::get('/proximite-coach', [FrontendController::class, 'coachProximite'])->name('front.proximite');
+Route::get('/proximite-user', [FrontendController::class, 'userProximite'])->name('front.proximiteuser');
 Route::get('/home', [FrontendController::class, 'indexlogin'])->name('front.indexlogin');
 Route::get('/courses', [FrontendController::class, 'courses'])->name('front.courses');
 Route::middleware(['auth:sanctum', 'verified'])->get('/owned/courses', [FrontendController::class, 'ownedCourses'])->name('front.ownedCourses');
@@ -68,6 +69,7 @@ Route::get('/about', [FrontendController::class, 'about'])->name('front.about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('front.contact');
 Route::get('/become/an/instructor', [FrontendController::class, 'instructor'])->name('front.instructor');
 Route::get('/info/{id}/coach', [FrontendController::class, 'coachProfile'])->name('front.coachProfile');
+Route::get('/info/{id}/users', [FrontendController::class, 'userProfile'])->name('front.userProfile');
 Route::middleware(['auth:sanctum', 'verified'])->get('/myaccount', [FrontendController::class, 'account'])->name('front.account');
 Route::middleware(['auth:sanctum', 'verified'])->get('/courses/{slug}/{id}', [FrontendController::class, 'player'])->name('front.player');
 Route::middleware(['auth:sanctum', 'verified'])->post('/subscriptions/store/{plan}', CreateSubscriptionController::class)->name('subscriptions.store');

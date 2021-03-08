@@ -24,13 +24,20 @@
         @yield('custom-css')
 		<!-- Title -->
 		<title>Cors Tech</title>
+
+		<style>
+			body,h1,h2,h3,h4,h5,h6,p,span,a {
+				color :#000 !important;
+			}
+		</style>
+		@yield('custom-css')
 	</head>
-	<body class="dark-mode bg-black">
+	<body class="dark-mode">
 		<!-- Navbar Start -->
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<a class="navbar-brand text-white" href="{{ url('/') }}">
 				<div class="navbar-box">
-					<img src="{{ asset('cors_assets/img/icons/logo-white.png') }}" alt="cover" />
+					<img src="{{ asset('cors_assets/img/icons/logo-black.png') }}" alt="cover" />
 				</div>
 				<span>Cors Tech</span>
 			</a>
@@ -52,15 +59,11 @@
 						<a class="nav-link text-white active" href="{{ url('/student') }}">Dashboard</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="#">Invoices & Accounts</a>
+						<a class="nav-link text-white" href="{{ route('payment.history') }}">Invoices & Accounts</a>
 					</li>
 				</ul>
 				<div class="nav-box">
 					<div class="nav-burger-box"></div>
-					<form class="nav-box-form">
-						<input type="text" class="bg-dark-light" />
-						<i class="fas fa-search"></i>
-					</form>
 					<div class="nav-profile-box">
 						<img src="{{ Auth::user()->profile_photo_url }}" alt="cover" />
 					</div>
@@ -85,7 +88,7 @@
 					<div class="col-lg-3">
 						<!-- sidebar -->
 						<aside class="black-sidebar">
-							<div class="side-list-box bg-dark-light">
+							<div class="side-list-box">
 								<h3 class="heading-sub heading-sub--white">Shortcuts</h3>
 
 								<ul class="side-list">
@@ -93,7 +96,8 @@
 									<li><a href="{{ url('/foo') }}" class="@yield('cors-active')">My cors</a></li>
 									<li><a href="{{ route('reviews.index') }}" class="@yield('review-active')">Reviews/Ratings</a></li>
 									<li><a href="{{ route('payment.history') }}" class="@yield('history-active')">Payment Records</a></li>
-									<li><a href="{{ url('/user/profile') }}">Settings</a></li>
+									<li><a href="{{ url('/user/profile') }}">Account Settings</a></li>
+									<li><a class="@yield('profile-active')" href="{{ route('coach.index') }}">Profile Settings</a></li>
 								</ul>
 							</div>
 						</aside>

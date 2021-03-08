@@ -53,7 +53,7 @@
                  <div class="modal-header">
                      <div class="ml-auto">
                          <h1 class="color-main">Registration particular</h1>
-                         <h4 class="color-main font-weight-bold">Already have an account ? Log in</h4>
+                         <h4 class="color-main font-weight-bold">Already have an account ? <a href="{{ route('login') }}">Log in</a></h4>
                      </div>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
@@ -153,7 +153,7 @@
                              <div class="modal-header">
                                  <div class="ml-auto">
                                      <h1 class="color-main">Personal space</h1>
-                                     <h4 class="color-main font-weight-bold">No account yet? Sign up</h4>
+                                     <h4 class="color-main font-weight-bold">No account yet? <a href="{{ route('register') }}">Sign up</a></h4>
                                  </div>
                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                      <span aria-hidden="true">&times;</span>

@@ -11,7 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
         <!-- Styles -->
+        @if(Auth::user()->role == 'student')
+        <link rel="stylesheet" href="{{ asset('css/app-white.css') }}">
+        @else
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @endif
 
         @livewireStyles
 

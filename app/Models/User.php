@@ -71,4 +71,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne('App\Models\CoachInfo');
     }
+
+    public function courseBought()
+    {
+        return $this->hasMany('App\Models\Sale', 'user_id', 'id');
+    }
 }

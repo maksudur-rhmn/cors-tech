@@ -101,4 +101,19 @@ class SubCategoryController extends Controller
     {
         //
     }
+
+    public function delete($id)
+    {
+      $category = SubCategory::findOrFail($id);
+        if($category->getCourse->count() != 0)
+        {
+          return back()->withDanger('This category has active courses. Please delete the course before deleting the category');
+        }
+        else
+        {
+          SubCategory::findOrFail($id)->delete();
+
+          return back()->withSuccess('Category deleted successfully');
+        }
+    }
 }

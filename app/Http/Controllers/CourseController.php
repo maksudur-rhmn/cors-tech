@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Str;
+use Auth;
 use Image; 
 use Carbon\Carbon;
+use App\Models\Sale;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use Auth;
 
 class CourseController extends Controller
 {
@@ -246,6 +247,7 @@ class CourseController extends Controller
     {
         Lesson::where('course_id', $id)->delete();
         Course::findOrFail($id)->delete();
+        Sale::where('course_id', $id)->delete();
         return back()->withSuccess('Course and all the lessons of this programme has been deleted');
     }
 

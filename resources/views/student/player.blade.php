@@ -8,7 +8,7 @@
     	
 <div class="col-lg-9">
     <!-- black main -->
-    <main class="black-main bg-dark-light">
+    <main class="black-main">
         <div class="black-main-header">
             <h3 class="heading-sub heading-sub--white">{{ ucfirst($course->title) }}</h3>
         </div>
@@ -22,8 +22,8 @@
           </div>
           <div class="col-lg-3">
 						<!-- sidebar -->
-						<aside class="black-sidebar">
-							<div class="side-list-box bg-dark-light">
+						<aside class="">
+							<div class="side-list-box">
 								<h3 class="heading-sub heading-sub--white">Lesson Lists</h3>
 
 								<ul class="side-list">
