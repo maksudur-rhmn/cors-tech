@@ -40,6 +40,11 @@ class FrontendController extends Controller
      return view('frontend.userProximite',compact('trainers'));
    }
 
+   public function ourapp()
+   {
+     return view('frontend.ourapp');
+   }
+
    public function indexlogin()
    {
      return view('frontend.indexlogin');

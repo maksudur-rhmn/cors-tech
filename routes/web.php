@@ -70,6 +70,7 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('front.cont
 Route::get('/become/an/instructor', [FrontendController::class, 'instructor'])->name('front.instructor');
 Route::get('/info/{id}/coach', [FrontendController::class, 'coachProfile'])->name('front.coachProfile');
 Route::get('/info/{id}/users', [FrontendController::class, 'userProfile'])->name('front.userProfile');
+Route::get('/our/app', [FrontendController::class, 'ourapp'])->name('front.app');
 Route::middleware(['auth:sanctum', 'verified'])->get('/myaccount', [FrontendController::class, 'account'])->name('front.account');
 Route::middleware(['auth:sanctum', 'verified'])->get('/courses/{slug}/{id}', [FrontendController::class, 'player'])->name('front.player');
 Route::middleware(['auth:sanctum', 'verified'])->post('/subscriptions/store/{plan}', CreateSubscriptionController::class)->name('subscriptions.store');

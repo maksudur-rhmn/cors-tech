@@ -30,7 +30,6 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="navbar-box">
-                        
                         <img src="{{ asset('cors_assets/img/icons/logo-black.png') }}" alt="" />
                     </div>
                     <span>Cors Tech</span>
@@ -50,10 +49,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/register') }}">Become an Instructor</a>
+                            <a class="nav-link" href="{{ url('/become/an/instructor') }}">Become an Instructor</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/home') }}">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/our/app') }}">Our Apps</a>
                         </li>
                      @guest
                      <li class="nav-item">

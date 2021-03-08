@@ -58,6 +58,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/home') }}">Courses</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/our/app') }}">Our Apps</a>
+                        </li>
                      @guest
                      <li class="nav-item">
                         <a class="nav-link" id="login">Login</a>

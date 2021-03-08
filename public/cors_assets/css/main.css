@@ -41,6 +41,15 @@ sass 7–1 pattern/
 |
 `– main.scss              // Main Sass file
 */
+
+.goog-te-banner-frame.skiptranslate 
+{
+      display: none !important;
+} 
+body 
+{
+  top: 0px !important; 
+}
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   border: none;
