@@ -39,11 +39,21 @@ class MollieController extends Controller
         ]);
 
         $payment = Mollie::api()->payments()->get($payment->id);
-
+        
+        $trainer = User::findOrFail($course->getUser->id);
+        if($trainer->subscribed('Premium membership'))
+        {
+            $commission = 'no';
+        }
+        else 
+        {
+            $commission = 'yes';
+        }
         Sale::create([
           'user_id'    => Auth::id(),
           'course_id'  => $request->course_id,
           'price'      => $course->price,
+          'commission' => $commission,
           'payment_id' => $payment->id,
           'trainer_id' => $course->getUser->id,
           'created_at' => Carbon::now(),

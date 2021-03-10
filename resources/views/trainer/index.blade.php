@@ -30,7 +30,11 @@
 											<div class="green-text">Valid</div>
 											@endif
 											<div class="sales-money">
-												{{ $sale->price }}$
+												@if($sale->commission == 'no')
+												{{ $sale->price }}EUR
+												@elseif($sale->commission == 'yes')
+												{{ $sale->price - (($sale->price/100) * 15) }}EUR
+												@endif
 												<a
 													href="#"
 													class="my-tooltip"

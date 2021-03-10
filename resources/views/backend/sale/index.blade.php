@@ -53,6 +53,7 @@ Sales
                                         <th>Payment ID</th>
                                         <th>Status</th>
                                         <th>Price</th>
+                                        <th>Commission</th>
                                         <th>Bought at</th>
                                     </tr>
                                 </thead>
@@ -74,6 +75,13 @@ Sales
                                           @endif
                                         </td>
                                         <td>EUR {{ $sale->price }}</td>
+                                        <td>
+                                            @if($sale->commission == 'no')
+                                            No commission.
+                                            @elseif($sale->commission == 'yes')
+                                            {{ ($sale->price/100) * 15 }}EUR
+                                            @endif
+                                        </td>
                                         <td>
                                           {{ $sale->created_at->format('d-M-Y') }}
                                         </td>
