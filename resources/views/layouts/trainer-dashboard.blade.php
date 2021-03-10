@@ -126,9 +126,13 @@
                                     <form action="{{ route('subscriptions.store', 'premium') }}" method="POST">
                                         @csrf
                                          <input type="hidden" value="{{ Auth::id() }}" name="user_id">
-                                         <button type="submit" class="button button--outline-white-empty">Subscribe now and start selling.</button>
+                                         <button type="submit" class="button button--outline-white-empty">Subscribe now and start selling. (No commissions charged on sales)</button>
                                     </form>
                                     @endif
+								</div>
+
+								<div class="program-content">
+									<a href="{{ route('trainer.createWithoutSubscription') }}" class="button button--outline-white-empty">Create course (15% commission on sales)</a>
 								</div>
 							</div>
 						</div>

@@ -66,6 +66,12 @@ class TrainerController extends Controller
            return redirect('/trainer')->withSuccess('Please subscribe to premium trainership to start selling your course');
        }
     }
+    public function createWithoutSubscription()
+    {
+        return view('trainer.create',[
+            'categories' => Category::orderBy('category_name', 'asc')->get(),
+        ]);
+    }
 
     public function lessonCreate()
     {

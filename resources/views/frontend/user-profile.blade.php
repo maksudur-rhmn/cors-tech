@@ -184,7 +184,7 @@
                                         <p>Site web</p>
                                         <span>{{ $data->website ?? 'Not available' }}</span>
                                     </div>
-                                    <div class="profile-link">
+                                    <div class="profile-link" style="margin-left: 30px !important; margin-right:30px !important;">
                                         <a href="https://messenger.dgtaltech.com" class="button button--fill">Envoyer un message</a>
                                     </div>
                                     <div class="profile-link">

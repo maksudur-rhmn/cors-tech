@@ -160,6 +160,7 @@ Route::get('/payment/history', [StudentController::class, 'history'])->name('pay
 //TrainerController 
 Route::get('/trainer', [TrainerController::class, 'index'])->name('trainer.index');
 Route::get('/create/programme', [TrainerController::class, 'create'])->name('trainer.create');
+Route::get('no/sub/create/programme', [TrainerController::class, 'createWithoutSubscription'])->name('trainer.createWithoutSubscription');
 Route::get('/add/lesson', [TrainerController::class, 'lessonCreate'])->name('trainerlesson.create');
 Route::get('/list/{id}/lesson', [TrainerController::class, 'lessonList'])->name('trainerlesson.list');
 Route::get('/prog/del', [TrainerController::class, 'deleteprogramme'])->name('trainerdelete.programme');
