@@ -64,6 +64,11 @@ function courses()
   return \App\Models\Course::where('feature', 'yes')->orderBy('id', 'desc')->get();
 }
 
+function pendingCourse()
+{
+  return \App\Models\Course::where('feature', 'no')->orderBy('id', 'desc')->get();
+}
+
 function failedPayments($id)
 {
   return \App\Models\Sale::where('user_id', $id)->where('status', 'pending')->get();

@@ -164,10 +164,13 @@
                             <li class="@yield('mm-active-course')">
                                 <a class="@yield('active-course')" href="{{ route('course.index') }}">
                                     <i class="fas fa-headset"></i>
+                                    @if(pendingCourse()->count() > 0)
+                                    <span class="badge badge-pill badge-info float-right">{{ pendingCourse()->count() }}</span>
+                                    @endif
                                     <span>
-                                        Courses
-
+                                        Courses   
                                     </span>
+                                    
                                 </a>
                             </li>
 
