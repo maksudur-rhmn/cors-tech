@@ -130,10 +130,11 @@
                                     </form>
                                     @endif
 								</div>
-
+								@if(!Auth::user()->subscribed('Premium membership'))
 								<div class="program-content">
 									<a href="{{ route('trainer.createWithoutSubscription') }}" class="button button--outline-white-empty">Create course (15% commission on sales)</a>
 								</div>
+								@endif
 							</div>
 						</div>
 					</div>

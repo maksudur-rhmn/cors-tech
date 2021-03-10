@@ -60,7 +60,11 @@
 								<div class="card-white">
 									<div class="card-white-row">
 										<h3 class="heading-sub">My Incomes</h3>
-										<h1>{{ $sales->sum('price') }}$</h1>
+										@if(Auth::user()->subscribed('Premium membership'))
+										<h1>{{ $sales->sum('price') }} EUR</h1>
+										@else
+										<h1>{{  $sales->sum('price') - (($sales->sum('price')/100) * 15)  }} EUR</h1>
+										@endif
 									</div>
 
 									<div class="card-white-row">
@@ -86,7 +90,11 @@
 										<h3 class="heading-sub">General sales</h3>
 										<div class="">
 											<h3>Total</h3>
-											<h1>{{ $sales->sum('price') }}$</h1>
+											@if(Auth::user()->subscribed('Premium membership'))
+											<h1>{{ $sales->sum('price') }} EUR</h1>
+											@else
+											<h1>{{  $sales->sum('price') - (($sales->sum('price')/100) * 15)  }} EUR</h1>
+											@endif
 										</div>
 									</div>
 									<div class="chart-container">
@@ -103,7 +111,11 @@
 										<h3 class="heading-sub">General sales</h3>
 										<div class="">
 											<h3>Total</h3>
-											<h1>{{ $sales->sum('price') }}$</h1>
+											@if(Auth::user()->subscribed('Premium membership'))
+											<h1>{{ $sales->sum('price') }} EUR</h1>
+											@else
+											<h1>{{  $sales->sum('price') - (($sales->sum('price')/100) * 15)  }} EUR</h1>
+											@endif
 										</div>
 									</div>
 									<div class="chart-container">
